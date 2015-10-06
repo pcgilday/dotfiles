@@ -16,6 +16,7 @@
 	
 	# Switch to a branch, creating it if necessary
     	go = checkout -B
+	co = checkout
 	
 	# Show verbose output about tags, branches or remotes
     	tags = tag -l
