@@ -1,10 +1,8 @@
 
-#source /usr/local/git/contrib/completion/git-completion.bash
-#GIT_PS1_SHOWDIRTYSTATE=true
-#export PS1='[\u@mbp \w$(__git_ps1)]\$ '
+source /usr/local/git/contrib/completion/git-completion.bash
+GIT_PS1_SHOWDIRTYSTATE=true
 
-
-export PS1="[\e[1;37m\u\e[0m@\e[1;37m\h\e[0m \e[1;37m\t\e[0m] \e[1;37m\w\e[0m \n=> "
+export PS1="[\e[1;37m\u\e[0m@\e[1;37m\h\e[0m \e[1;37m\t\e[0m] \e[1;37m\w\e[0m $(__git_ps1)\n=> "
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
