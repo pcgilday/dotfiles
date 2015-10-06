@@ -4,7 +4,14 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export MONGO_PATH=/usr/local/mongodb
-export PATH=$PATH:$MONGO_PATH/bin
+export NPM_PATH=/Users/patrick/npm
+#Put the npm path in front (before usr/local)
+export PATH=$NPM_PATH/bin:$PATH:$MONGO_PATH/bin
 
+# git tab completion (must be installed via 'brew install git bash-completion'
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+ . $(brew --prefix)/etc/bash_completion
+fi
 
+#
 alias git='hub'
