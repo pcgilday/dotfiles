@@ -11,14 +11,19 @@ export MONGO_PATH=/usr/local/mongodb
 export NPM_PATH=/Users/patrick/npm
 #Put the npm path in front (before usr/local)
 export PATH=$NPM_PATH/bin:$PATH:$MONGO_PATH/bin
+# pip should only run if there is a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=true
 
-# git tab completion (must be installed via 'brew install git bash-completion'
+# git tab completion 
+# (must be installed via 'brew install git bash-completion'
+# https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
  . $(brew --prefix)/etc/bash_completion
 fi
 
 # makes pretty prompt in git repo directories
-# 'brew install bash-git-prompt' https://github.com/magicmonty/bash-git-prompt
+# 'brew install bash-git-prompt' 
+# https://github.com/magicmonty/bash-git-prompt
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
     source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
