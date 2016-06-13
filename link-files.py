@@ -1,14 +1,21 @@
 #!/usr/bin/python
 
-import os;
+import os, errno
 
 home = os.path.expanduser('~')
-files = ['.bash_profile', '.editorconfig', '.gitconfig']
+f = open('home-dir-files', 'r')
+dotfiles = [line.strip() for line in f.readlines()]
+f.close()
 
-
-for file in files:
-  src = home + '/config/' + file
-  dest = home + '/' + file
-  print 'linking', src, 'to', dest
-  os.symlink(src, dest)
-
+for dotfile in dotfiles:
+	src = home + '/dotfiles/' + dotfile
+	dest = home + '/' + dotfile
+	try:
+		os.symlink(src, dest)
+		print 'linked', src, 'to', dest, '\n'
+	except OSError, e:
+		if e.errno == errno.EEXIST:
+			print 'removing existing', dest
+			os.remove(dest)
+			os.symlink(src, dest)
+			print 'linked', src, 'to', dest, '\n'

@@ -1,25 +1,45 @@
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
 	required = true
 [user]
 	name = Patrick Gilday
 	email = pcgilday@gmail.com
 
 [alias]
-	# grab from remote, i.e. prr upstream 55
-    	prr = "!f() { git fetch -fu $1 refs/pull/$2/head:pr/$2; } ; f"
         
 	# Pretty graph view
-	g = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) -    %C(bold green)(%ar)%C(reset) %C(reset)%C(bold yellow)%d%C(reset) %C(white)%s%C(reset) %C(dim white)- %an' --all
-        l = log --graph --abbrev-commit --decorate --all
+        g = log --graph --date=relative --all --format=format:'%C(dim yellow)%h%C(reset) %C(cyan)%d%C(reset) %C(green)%s%C(reset) %C(dim yellow)<%an>%C(reset)'
+	
+	# Pretty email style git log
+	#pretty-log = log --format=format:'Commit: %H (%ad)%nFrom: %an<%ae>%nSubject: %s%n%n%b'
+	l = log --decorate --all
+
+	# hub pull-request command
+	pr = pull-request	
+	# grab from remote, i.e. prr upstream 55
+    	prr = "!f() { git fetch -fu $1 refs/pull/$2/head:pr/$2; } ; f"
 	
 	# Switch to a branch, creating it if necessary
     	go = checkout -B
 	co = checkout
+	ad = add .
+	pl = pull -r
+	am = commit --amend
+	ca = commit -a
+	bd = branch -d
+	rp = remote prune pcgilday origin
+	ss = status -s
+	d = diff
+	# diff between master and HEAD
+	dm = diff master..HEAD
+	# diff show filenames only
+	df = diff --name-status
+	# show files different between master and HEAD
+	dfm = diff --name-status master..HEAD
+
 	
 	# Show verbose output about tags, branches or remotes
-    	tags = tag -l
     	branches = branch -a
     	remotes = remote -v
 
@@ -34,6 +54,7 @@
 	branch = auto
 	diff = auto
 	status = auto
+	ui = auto
 [color "branch"]
 	current = yellow reverse
 	local = yellow
@@ -47,4 +68,5 @@
 	added = yellow
 	changed = green
 	untracked = cyan
-
+[color "decorate"]
+	tags = cyan

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+# git aliases
+alias git='hub'
+alias gg='git g'
+alias gl='git l'
+alias gs='git status -s'
+alias gd='git diff'
+# Commit all changes to last commit
+alias comend='git add -A && git commit -av --amend --date=now'
+alias com='git add -A && git commit -av'
+alias rebm='git rebase master'
+alias prune-up='git remote update origin --prune && git remote update pcgilday --prune'
+
+# file aliases
+alias ll='ls -la'
+alias la='ls -a'

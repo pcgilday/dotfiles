@@ -1,7 +1,4 @@
 
-#source /usr/local/git/contrib/completion/git-completion.bash
-GIT_PROMPT_ONLY_IN_REPO=1
-
 export PS1="[\e[1;37m\u\e[0m@\e[1;37m\h\e[0m \e[1;37m\t\e[0m] \e[1;37m\w\e[0m \n$ "
 
 export CLICOLOR=1
@@ -9,10 +6,11 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export MONGO_PATH=/usr/local/mongodb
 export NPM_PATH=/Users/patrick/npm
+export GAE_PATH=/Users/patrick/google_appengine
 #Put the npm path in front (before usr/local)
-export PATH=$NPM_PATH/bin:$PATH:$MONGO_PATH/bin
-# pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
+export PATH=$NPM_PATH/bin:$GAE_PATH:$PATH:$MONGO_PATH/bin
+
+### GIT CONFIGS
 
 # git tab completion 
 # (must be installed via 'brew install git bash-completion'
@@ -28,5 +26,17 @@ if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
     source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
+#source /usr/local/git/contrib/completion/git-completion.bash
+GIT_PROMPT_ONLY_IN_REPO=1
+
 #
-alias git='hub'
+source "$HOME/.aliases"
+source "$HOME/.bash_py"
+
+# private tokens that do not get saved to repo
+source "$HOME/.tokens"
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/patrick/google-cloud-sdk/path.bash.inc'
+# The next line enables shell command completion for gcloud.
+source '/Users/patrick/google-cloud-sdk/completion.bash.inc'
