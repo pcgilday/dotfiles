@@ -13,7 +13,7 @@
 	
 	# Pretty email style git log
 	#pretty-log = log --format=format:'Commit: %H (%ad)%nFrom: %an<%ae>%nSubject: %s%n%n%b'
-	l = log --decorate --all
+	l = log --decorate
 
 	# hub pull-request command
 	pr = pull-request	
