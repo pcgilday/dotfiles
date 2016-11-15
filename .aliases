@@ -4,7 +4,7 @@
 # git aliases
 alias git='hub'
 alias gg='git g'
-alias gl='git l'
+alias gl='git log --decorate'
 alias gs='git status -s'
 alias gd='git diff'
 # Commit all changes to last commit
@@ -16,3 +16,9 @@ alias prune-up='git remote update origin --prune && git remote update pcgilday -
 # file aliases
 alias ll='ls -la'
 alias la='ls -a'
+
+#hz aliases
+alias api='cd ~/development/homezen/hz-web-api'
+alias webapp='cd ~/development/homezen/hz-webapp'
+alias apiclient='cd ~/development/homezen/hz-api-client'
+

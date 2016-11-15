@@ -1,8 +1,7 @@
+#!/bin/bash
+
 export PYTHON_LOCAL=$HOME/.local
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PYTHON_LOCAL/bin:$PATH
 
-eval "$(pyenv init -)"
-
-#test -f /usr/local/bin/virtualenvwrapper.sh && source
-#/usr/local/bin/virtualenvwrapper.sh
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi

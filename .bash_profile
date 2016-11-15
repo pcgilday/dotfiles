@@ -5,10 +5,11 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export MONGO_PATH=/usr/local/mongodb
-export NPM_PATH=/Users/patrick/npm
-export GAE_PATH=/Users/patrick/google_appengine
+export NPM_PATH=$HOME/npm
+export GAE_PATH=$HOME/google_appengine
 #Put the npm path in front (before usr/local)
 export PATH=$NPM_PATH/bin:$GAE_PATH:$PATH:$MONGO_PATH/bin
+export PATH=$HOME/bin:$PATH
 
 ### GIT CONFIGS
 
@@ -40,3 +41,7 @@ source "$HOME/.tokens"
 source '/Users/patrick/google-cloud-sdk/path.bash.inc'
 # The next line enables shell command completion for gcloud.
 source '/Users/patrick/google-cloud-sdk/completion.bash.inc'
+
+ # added for npm-completion https://github.com/Jephuff/npm-bash-completion
+PATH_TO_NPM_COMPLETION="/Users/patrick/npm/lib/node_modules/npm-completion"
+source $PATH_TO_NPM_COMPLETION/npm-completion.sh
