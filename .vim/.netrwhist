@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/patrick/Development/home-buddy/homebuddy-webapp/.git'
-let g:netrw_dirhist_2='/Users/patrick/Development/homezen/hz-document-schemas/.git'
-let g:netrw_dirhist_3='/Users/patrick/development/homezen/hz-webapp/.git'
-let g:netrw_dirhist_4='/Users/patrick/development/homezen/hz-webapp/app'
-let g:netrw_dirhist_5='/Users/patrick/development/worktrees/hz-webapp/bug-get-current-transaction/app'
