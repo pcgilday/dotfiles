@@ -5,19 +5,21 @@
 [user]
 	name = Patrick Gilday
 	email = pcgilday@gmail.com
-
+[core]
+    editor = /usr/local/bin/vim
+    excludesfile = ~/.gitignore_global
 [alias]
-        
+
 	# Pretty graph view
-        g = log --graph --date=relative --all --format=format:'%C(dim yellow)%h%C(reset) %C(cyan)%d%C(reset) %C(green)%s%C(reset) %C(dim yellow)<%an>%C(reset)'
-	
+    g = log --graph --date=relative --all --format=format:'%C(dim yellow)%h%C(reset) %C(cyan)%d%C(reset) %C(green)%s%C(reset) %C(dim yellow)<%an>%C(reset)'
+
 	# hub pull-request command
-	pr = pull-request	
+	pr = pull-request
 	# grab from remote, i.e. prr upstream 55
-    	prr = "!f() { git fetch -fu $1 refs/pull/$2/head:pr/$2; git checkout pr/$2; } ; f"
-	
+    prr = "!f() { git fetch -fu $1 refs/pull/$2/head:pr/$2; git checkout pr/$2; } ; f"
+
 	# Switch to a branch, creating it if necessary
-    	go = checkout -B
+    go = checkout -B
 	co = checkout
 	cp = cherry-pick
 	ad = add .
@@ -35,16 +37,16 @@
 	# show files different between master and HEAD
 	dfm = diff --name-status master..HEAD
 
-	
+
 	# Show verbose output about tags, branches or remotes
-    	branches = branch -a
-    	remotes = remote -v
+    branches = branch -a
+    remotes = remote -v
 
 	# Interactive rebase with the given number of latest commits
-    	reb = "!r() { git rebase -i HEAD~$1; }; r"
+    reb = "!r() { git rebase -i HEAD~$1; }; r"
 [apply]
-    	# Detect whitespace errors when applying a patch
-    	whitespace = fix
+    # Detect whitespace errors when applying a patch
+    whitespace = fix
 [push]
 	default = simple
 [color]

@@ -13,6 +13,8 @@ alias com='git add -A && git commit -av'
 alias rebm='git rebase master'
 alias prune-up='git remote update origin --prune && git remote update pcgilday --prune'
 
+alias gr='grep -Ir'
+alias gri='grep -Iri'
 # file aliases
 alias ll='ls -la'
 alias la='ls -a'
