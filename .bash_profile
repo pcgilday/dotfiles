@@ -13,7 +13,7 @@ export PATH=$HOME/bin:$PATH
 
 ### GIT CONFIGS
 
-# git tab completion 
+# git tab completion
 # (must be installed via 'brew install git bash-completion'
 # https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -21,7 +21,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # makes pretty prompt in git repo directories
-# 'brew install bash-git-prompt' 
+# 'brew install bash-git-prompt'
 # https://github.com/magicmonty/bash-git-prompt
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
     source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
@@ -45,3 +45,7 @@ source '/Users/patrick/google-cloud-sdk/completion.bash.inc'
  # added for npm-completion https://github.com/Jephuff/npm-bash-completion
 PATH_TO_NPM_COMPLETION="/Users/patrick/npm/lib/node_modules/npm-completion"
 source $PATH_TO_NPM_COMPLETION/npm-completion.sh
+
+# added by rvm
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

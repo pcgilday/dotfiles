@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alias resource='source ~/.bash_profile'
 
 # git aliases
 alias git='hub'
@@ -24,3 +25,8 @@ alias api='cd ~/development/homezen/hz-web-api'
 alias webapp='cd ~/development/homezen/hz-webapp'
 alias apiclient='cd ~/development/homezen/hz-api-client'
 
+# Recursively find and replace in files
+# TODO make path optional and use current dir as default
+find-replace() {
+    find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
+}
