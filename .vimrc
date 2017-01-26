@@ -24,6 +24,7 @@ set mouse=a
 set ttymouse=xterm2
 
 set statusline=%f
+set statusline+=%m
 set statusline+=%=
 set statusline+=%l
 set statusline+=/
