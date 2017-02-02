@@ -29,3 +29,6 @@ set statusline+=%=
 set statusline+=%l
 set statusline+=/
 set statusline+=%c
+
+set splitbelow
+set splitright
