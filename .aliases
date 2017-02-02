@@ -7,7 +7,7 @@ alias git='hub'
 alias gg='git g'
 alias gl='git log --decorate'
 alias gs='git status -s'
-alias gd='git diff'
+alias gd='clear; git diff'
 # Commit all changes to last commit
 alias comend='git add -A && git commit -av --amend --date=now'
 alias com='git add -A && git commit -av'
