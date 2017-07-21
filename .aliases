@@ -2,23 +2,32 @@
 
 alias resource='source ~/.bash_profile'
 
+alias tmux='tmux -2'
+alias v='vim .'
+
 # git aliases
 alias git='hub'
 alias gg='git g'
 alias gl='git log --decorate'
 alias gs='git status -s'
 alias gd='clear; git diff'
+alias gp='git pull -r'
+alias gb='git branch'
+alias gm='git co master'
+
 # Commit all changes to last commit
 alias comend='git add -A && git commit -av --amend --date=now'
 alias com='git add -A && git commit -av'
 alias rebm='git rebase master'
-alias prune-up='git remote update origin --prune && git remote update pcgilday --prune'
 
-alias gr='grep -Ir'
-alias gri='grep -Iri'
+alias gr='grep -Ir --color'
+alias gri='grep -Iri --color'
 # file aliases
 alias ll='ls -la'
 alias la='ls -a'
+
+
+alias yr='yarn run'
 
 #hz aliases
 alias api='cd ~/repos/homezen/hz-web-api'
@@ -27,6 +36,14 @@ alias apiclient='cd ~/repos/homezen/hz-api-client'
 
 # Recursively find and replace in files
 # TODO make path optional and use current dir as default
-find-replace() {
+findreplace() {
     find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
 }
+
+# productivity
+alias todo-edit='vim ~/TODO.md'
+alias todo='cat ~/TODO.md'
+
+#fixme() {
+#    grep -Ir --color  'FIXME' $1
+#}

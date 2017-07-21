@@ -1,12 +1,12 @@
 source ~/.vim/bootstrap.vim
 
+syntax enable
 colorscheme monokai
 set t_Co=256
 
 set nu
 set hlsearch
 set tw=72
-syntax enable
 
 set tabstop=4
 set softtabstop=0
@@ -32,3 +32,13 @@ set statusline+=%c
 
 set splitbelow
 set splitright
+
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+
+vnoremap <C-c> "*y
+vnoremap <C-v> <C-r><C-p>*
+

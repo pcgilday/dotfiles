@@ -7,8 +7,9 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export MONGO_PATH=/usr/local/mongodb
 export NPM_PATH=$HOME/npm
 export GAE_PATH=$HOME/google_appengine
-#Put the npm path in front (before usr/local)
-export PATH=$NPM_PATH/bin:$GAE_PATH:$PATH:$MONGO_PATH/bin
+export YARN_PATH=$HOME/.yarn
+# Put the npm path before usr/local
+export PATH=$YARN_PATH/bin:$NPM_PATH/bin:$GAE_PATH:$PATH:$MONGO_PATH/bin
 export PATH=$HOME/bin:$PATH
 
 ### GIT CONFIGS
@@ -30,18 +31,11 @@ fi
 #source /usr/local/git/contrib/completion/git-completion.bash
 GIT_PROMPT_ONLY_IN_REPO=1
 
-#
 source "$HOME/.aliases"
 source "$HOME/.bash_py"
 
 # private tokens that do not get saved to repo
 source "$HOME/.tokens"
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/patrick/google-cloud-sdk/path.bash.inc'
-# The next line enables shell command completion for gcloud.
-source '/Users/patrick/google-cloud-sdk/completion.bash.inc'
-
  # added for npm-completion https://github.com/Jephuff/npm-bash-completion
 PATH_TO_NPM_COMPLETION="/Users/patrick/npm/lib/node_modules/npm-completion"
 source $PATH_TO_NPM_COMPLETION/npm-completion.sh
@@ -49,3 +43,8 @@ source $PATH_TO_NPM_COMPLETION/npm-completion.sh
 # added by rvm
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/patrick/google-cloud-sdk/path.bash.inc' ]; then source '/Users/patrick/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/patrick/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/patrick/google-cloud-sdk/completion.bash.inc'; fi

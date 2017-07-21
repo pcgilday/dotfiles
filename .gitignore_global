@@ -1,2 +1,6 @@
 *.swp
 .DS_Store
+.env
+yarn.lock
+dump.rdb
+package-lock.json
