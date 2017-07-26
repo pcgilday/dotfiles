@@ -12,6 +12,12 @@ export YARN_PATH=$HOME/.yarn
 export PATH=$YARN_PATH/bin:$NPM_PATH/bin:$GAE_PATH:$PATH:$MONGO_PATH/bin
 export PATH=$HOME/bin:$PATH
 
+source "$HOME/.aliases"
+source "$HOME/.bash_py"
+
+# private tokens that do not get saved to repo
+source "$HOME/.tokens"
+
 ### GIT CONFIGS
 
 # git tab completion
@@ -31,11 +37,6 @@ fi
 #source /usr/local/git/contrib/completion/git-completion.bash
 GIT_PROMPT_ONLY_IN_REPO=1
 
-source "$HOME/.aliases"
-source "$HOME/.bash_py"
-
-# private tokens that do not get saved to repo
-source "$HOME/.tokens"
  # added for npm-completion https://github.com/Jephuff/npm-bash-completion
 PATH_TO_NPM_COMPLETION="/Users/patrick/npm/lib/node_modules/npm-completion"
 source $PATH_TO_NPM_COMPLETION/npm-completion.sh

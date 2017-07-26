@@ -3,17 +3,20 @@
 alias resource='source ~/.bash_profile'
 
 alias tmux='tmux -2'
-alias v='vim .'
+alias v='vim'
 
-# git aliases
+###################
+# GIT SHORTCUTS
+###################
 alias git='hub'
-alias gg='git g'
-alias gl='git log --decorate'
-alias gs='git status -s'
+alias g='git'
+alias gg='g g'
+alias gl='g log --decorate'
+alias gs='g status -s'
 alias gd='clear; git diff'
-alias gp='git pull -r'
-alias gb='git branch'
-alias gm='git co master'
+alias gp='g pull -r'
+alias gb='g branch'
+alias gm='g co master'
 
 # Commit all changes to last commit
 alias comend='git add -A && git commit -av --amend --date=now'
@@ -22,7 +25,10 @@ alias rebm='git rebase master'
 
 alias gr='grep -Ir --color'
 alias gri='grep -Iri --color'
-# file aliases
+
+#######################
+# GENERAL SHORTCUTS
+#######################
 alias ll='ls -la'
 alias la='ls -a'
 
@@ -40,10 +46,22 @@ findreplace() {
     find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
 }
 
-# productivity
-alias todo-edit='vim ~/TODO.md'
-alias todo='cat ~/TODO.md'
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
 
-#fixme() {
-#    grep -Ir --color  'FIXME' $1
-#}
+
+
+####################
+# NETWORKING
+####################
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+    alias "$method"="lwp-request -m '$method'"
+done
+
+
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume output volume 100'"
