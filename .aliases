@@ -35,6 +35,8 @@ alias la='ls -a'
 
 alias yr='yarn run'
 
+alias sudo='sudo '
+
 #hz aliases
 alias api='cd ~/repos/homezen/hz-web-api'
 alias webapp='cd ~/repos/homezen/hz-webapp'
@@ -49,17 +51,30 @@ findreplace() {
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-
-
 ####################
 # NETWORKING
 ####################
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
+# Show active network interfaces
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
     alias "$method"="lwp-request -m '$method'"
 done
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
+
+
+# Google Chrome
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\Chrome'
+alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/

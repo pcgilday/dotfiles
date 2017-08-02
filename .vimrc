@@ -16,7 +16,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-" Plug 'flowtype/vim-flow'
+Plug 'flowtype/vim-flow'
 Plug 'vim-syntastic/syntastic'
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
@@ -72,6 +72,11 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+"
+" flowtype/vim-flow
+"
+let g:flow#autoclose = 1
 
 "
 " plangloss/vim-javascript

@@ -1,8 +1,2 @@
 #!/bin/bash
 
-export PYTHON_LOCAL=$HOME/.local
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PYTHON_LOCAL/bin:$PATH
-export PYTHON_CONFIGURE_OPTS="--enable-framework"
-
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi

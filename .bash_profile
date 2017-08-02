@@ -4,21 +4,29 @@ export PS1="[\e[1;37m\u\e[0m@\e[1;37m\h\e[0m \e[1;37m\t\e[0m] \e[1;37m\w\e[0m \n
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# FIXME clean these up and only export ones that need to be exported
+# export path while adding each path to it, no need to define and export
+# these unless they are being used elsewhere
 export MONGO_PATH=/usr/local/mongodb
 export NPM_PATH=$HOME/npm
 export GAE_PATH=$HOME/google_appengine
 export YARN_PATH=$HOME/.yarn
+export RVM_BIN=$HOME/.rvm/bin
+
 # Put the npm path before usr/local
 export PATH=$YARN_PATH/bin:$NPM_PATH/bin:$GAE_PATH:$PATH:$MONGO_PATH/bin
 export PATH=$HOME/bin:$PATH
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+
+# python config
+export PYTHON_LOCAL=$HOME/.local
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
 
 source "$HOME/.aliases"
-source "$HOME/.bash_py"
 
-# private tokens that do not get saved to repo
-source "$HOME/.tokens"
-
-### GIT CONFIGS
+# any private config that should not get saved to repo
+source "$HOME/.private"
 
 # git tab completion
 # (must be installed via 'brew install git bash-completion'

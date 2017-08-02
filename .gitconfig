@@ -1,13 +1,21 @@
+
+[user]
+	name = Patrick Gilday
+	email = pcgilday@users.noreply.github.com
+
+# override user info for work repos
+[includeIf "gitdir:~/repos/homezen/"]
+    path = .gitconfig-homezen
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
-[user]
-	name = Patrick Gilday
-	email = pcgilday@gmail.com
+
 [core]
     editor = /usr/local/bin/vim
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore-global
+
 [alias]
 
 	# Pretty graph view
