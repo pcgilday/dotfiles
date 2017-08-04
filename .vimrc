@@ -97,6 +97,16 @@ syntax enable
 colorscheme monokai
 set t_Co=256
 
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+" set clipboard=unnamed
+
+" Centralize backups, swapfiles and undo history
+" set backupdir=~/.vim/backups
+" set directory=~/.vim/swaps
+" if exists("&undodir")
+"    set undodir=~/.vim/undo
+" endif
+
 set nu
 set hlsearch
 set tw=72
