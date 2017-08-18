@@ -2,8 +2,80 @@
 ##############################
 # BASH PROMPT
 ##############################
+prompt_git() {
+    local s='';
+    local branchName='';
 
-export PS1="[\e[1;37m\u\e[0m@\e[1;37m\h\e[0m \e[1;37m\t\e[0m] \e[1;37m\w\e[0m \n$ "
+    # Check if the current directory is in a Git repository.
+    if [ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]; then
+
+        # check if the current directory is in .git before running git checks
+        if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
+
+            # Ensure the index is up to date.
+            git update-index --really-refresh -q &>/dev/null;
+
+            # Check for uncommitted changes in the index.
+            if ! $(git diff --quiet --ignore-submodules --cached); then
+                s+='+';
+            fi;
+
+            # Check for unstaged changes.
+            if ! $(git diff-files --quiet --ignore-submodules --); then
+                s+='!';
+            fi;
+
+            # Check for untracked files.
+            if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+                s+='?';
+            fi;
+
+            # Check for stashed files.
+            if $(git rev-parse --verify refs/stash &>/dev/null); then
+                s+='$';
+            fi;
+
+        fi;
+
+        # Get the short symbolic ref.
+        # If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
+        # Otherwise, just give up.
+        branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+            git rev-parse --short HEAD 2> /dev/null || \
+        echo '(unknown)')";
+
+        [ -n "${s}" ] && s=" [${s}]";
+
+        echo -e "${1}${branchName}${2}${s}";
+    else
+        return;
+    fi;
+}
+
+reset="\e[0m";
+black="\e[1;30m";
+blue="\e[1;34m";
+cyan="\e[1;36m";
+green="\e[1;32m";
+orange="\e[1;33m";
+purple="\e[1;35m";
+red="\e[1;31m";
+violet="\e[1;35m";
+white="\e[1;37m";
+yellow="\e[1;33m";
+
+# PS1="[\e[1;37m\u\e[0m@\e[1;37m\h\e[0m \e[1;37m\t\e[0m] \e[1;37m\w\e[0m \n$ "
+PS1="["
+PS1+="${white}\t" # time
+PS1+=" ${white}\u" # username
+PS1+="${reset}@"
+PS1+="${white}\h" # host
+PS1+=" ${cyan}\w" # working dir
+PS1+="${reset}]"
+PS1+="\$(prompt_git \"\[${white}\] \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+
+PS1+="${reset}\n$ " # `$` (and reset color)
+export PS1
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -13,20 +85,22 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # PATH
 ##########################
 
-# Put the yarn/npm before usr/local (and yarn before npm)
-export PATH=$HOME/.yarn/bin:$HOME/npm/bin:$PATH
 # Add GAE to front of path
 export PATH=$HOME/google_appengine:$PATH
-# Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
+# Put the yarn/npm before usr/local (and yarn before npm)
+export PATH=$HOME/.yarn/bin:$HOME/npm/bin:$PATH
+# python local path
+export PATH=$HOME/.local/bin:$PATH
 # Put user bin first
 export PATH=$HOME/bin:$PATH
+# Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
 
 ###################################
 # python config
 ###################################
-export PYTHON_LOCAL=$HOME/.local
-export PYTHON_CONFIGURE_OPTS="--enable-framework"
+# export PYTHON_LOCAL=$HOME/.local
+# export PYTHON_CONFIGURE_OPTS="--enable-framework"
 
 source "$HOME/.aliases"
 # any private config that should not get saved to repo
@@ -48,19 +122,11 @@ if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completio
 	complete -o default -o nospace -F _git g;
 fi;
 
-# makes pretty prompt in git repo directories
-# 'brew install bash-git-prompt'
-# https://github.com/magicmonty/bash-git-prompt
-if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-    source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
-fi
 
-# source /usr/local/git/contrib/completion/git-completion.bash
-GIT_PROMPT_ONLY_IN_REPO=1
-
+# FIXME - this appears unneeded by looking at repo
  # added for npm-completion https://github.com/Jephuff/npm-bash-completion
-PATH_TO_NPM_COMPLETION="/Users/patrick/npm/lib/node_modules/npm-completion"
-source $PATH_TO_NPM_COMPLETION/npm-completion.sh
+# NPM_COMPLETION_PATH="/Users/patrick/npm/lib/node_modules/npm-completion"
+# source $PATH_TO_NPM_COMPLETION/npm-completion.sh
 
 
 
