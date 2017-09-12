@@ -77,6 +77,7 @@ highlight link SyntasticStyleWarningSign SignColumn
 " flowtype/vim-flow
 "
 let g:flow#autoclose = 1
+let g:flow#enable = 0
 
 "
 " plangloss/vim-javascript
