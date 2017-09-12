@@ -1,9 +1,46 @@
 #!/bin/bash
 
-alias resource='source ~/.bash_profile'
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+    export LS_COLORS='no=00:fi=00:di=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+else # macOS `ls`
+    colorflag="-G"
+    export LSCOLORS='GxFxCxDxBxegedabagaced'
+fi
 
+#######################
+# GENERAL
+#######################
+alias resource='source ~/.bash_profile'
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
 alias tmux='tmux -2'
 alias v='vim'
+alias ll='ls -la'
+# alias la='ls -a'
+# List all files colorized in long format, including dot files
+alias la="ls -laF ${colorflag}"
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+alias yr='yarn run'
+
+# Get macOS Software Updates, and update Homebrew and it's packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# Google Chrome
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\Chrome'
+alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
+
+# Recursively find and replace in files
+# TODO make path optional and use current dir as default
+findreplace() {
+    find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
+}
+
 
 ###################
 # GIT SHORTCUTS
@@ -27,30 +64,6 @@ alias rebm='git rebase master'
 alias gr='grep -Ir --color'
 alias gri='grep -Iri --color'
 
-#######################
-# GENERAL SHORTCUTS
-#######################
-alias ll='ls -la'
-alias la='ls -a'
-
-
-alias yr='yarn run'
-
-alias sudo='sudo '
-
-#hz aliases
-alias api='cd ~/repos/homezen/hz-web-api'
-alias webapp='cd ~/repos/homezen/hz-webapp'
-alias apiclient='cd ~/repos/homezen/hz-api-client'
-
-# Recursively find and replace in files
-# TODO make path optional and use current dir as default
-findreplace() {
-    find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
-}
-
-# Print each PATH entry on a separate line
-alias path='echo -e ${PATH//:/\\n}'
 
 ####################
 # NETWORKING
@@ -69,13 +82,13 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
     alias "$method"="lwp-request -m '$method'"
 done
 
-# Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
 
-
-# Google Chrome
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\Chrome'
-alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
+#######################
+# HOMEZEN
+#######################
+alias api='cd ~/repos/homezen/hz-web-api'
+alias webapp='cd ~/repos/homezen/hz-webapp'
+alias apiclient='cd ~/repos/homezen/hz-api-client'
 
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/

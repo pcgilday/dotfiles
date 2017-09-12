@@ -77,9 +77,6 @@ PS1+="\$(prompt_git \"\[${white}\] \[${violet}\]\" \"\[${blue}\]\")"; # Git repo
 PS1+="${reset}\n$ " # `$` (and reset color)
 export PS1
 
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-
 
 ##########################
 # PATH
@@ -127,7 +124,6 @@ fi;
  # added for npm-completion https://github.com/Jephuff/npm-bash-completion
 # NPM_COMPLETION_PATH="/Users/patrick/npm/lib/node_modules/npm-completion"
 # source $PATH_TO_NPM_COMPLETION/npm-completion.sh
-
 
 
 ##########################################################
