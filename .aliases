@@ -17,7 +17,8 @@ alias resource='source ~/.bash_profile'
 alias reload="exec $SHELL -l"
 alias tmux='tmux -2'
 alias v='vim'
-alias ll='ls -la'
+# List all files colorized in long format
+alias l="ls -lF ${colorflag}"
 # alias la='ls -a'
 # List all files colorized in long format, including dot files
 alias la="ls -laF ${colorflag}"
@@ -51,6 +52,7 @@ alias gg='g g'
 alias gl='g log'
 alias gs='g status -s'
 alias gd='clear; git diff'
+alias gdc='clear; git diff --cached'
 alias gp='g pull -r'
 alias gb='g branch'
 alias gm='g co master'
