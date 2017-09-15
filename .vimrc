@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""
 " vim-plug config
 """""""""""""""""""""""""""""""""
 
@@ -17,11 +17,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'flowtype/vim-flow'
-Plug 'vim-syntastic/syntastic'
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'suan/vim-instant-markdown'
+Plug 'w0rp/ale'
 
 " Lock in the plugin list.
 call plug#end()
@@ -39,39 +39,13 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.so$\|\.pyc$|\.dat$|\.DS_Store$'
   \ }
 
-"
-" vim-syntastic/syntastic
-"
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-" Set passive mode and map check b/c check is slow as crap and we don't
-" want it on every save.
-" Consider switching to ALE (https://github.com/w0rp/ale) since it
-" doesn't look like syntastic is going to get async support anytime
-" soon. - https://github.com/vim-syntastic/syntastic/issues/699
-let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': []}
-silent! nmap <F6> :SyntasticCheck<CR>
+" :ALEFix will try and fix your JS code with ESLint.
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
 
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_css_checkers = ['stylelint']
-let g:syntastic_python_checkers = ['pylint']
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '❌'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '⚠️'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
+let g:ale_fix_on_save = 1
 
 "
 " flowtype/vim-flow
@@ -150,3 +124,7 @@ end
 vnoremap <C-c> "*y
 vnoremap <C-v> <C-r><C-p>*
 
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
