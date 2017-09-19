@@ -19,7 +19,9 @@
 [alias]
 
 	# Pretty graph view
-    g = log --graph --date=relative --all --format=format:'%C(dim yellow)%h%C(reset) %C(cyan)%d%C(reset) %C(green)%s%C(reset) %C(dim yellow)<%an>%C(reset)'
+    graph-pretty = log --graph --date=relative --all --format=format:'%C(dim yellow)%h%C(reset) %C(cyan)%d%C(reset) %C(green)%s%C(reset) %C(dim yellow)<%an>%C(reset)'
+    log-pretty = log --abbrev-commit
+    # log-pretty = log --format='%C(dim yellow)commit: %h %C(cyan)%d%C(reset) %C(reset)%nAuthor: %an <%ae> %nDate: %ad %n%n%>>(4)%s %n%+b'
 
 	# grab from remote, i.e. prr upstream 55
     prr = "!f() { git fetch -fu $1 refs/pull/$2/head:pr/$2; git checkout pr/$2; } ; f"
@@ -30,7 +32,7 @@
     prr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
     pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 
-    prune-up = remote update pcgilday origin --prune
+    prune-up = remote update origin pcgilday --prune
 
 	# Switch to a branch, creating it if necessary
     go = checkout -B

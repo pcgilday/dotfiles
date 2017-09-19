@@ -48,8 +48,8 @@ findreplace() {
 ###################
 alias git='hub'
 alias g='git'
-alias gg='g g'
-alias gl='g log'
+alias gg='g graph-pretty'
+alias gl='g log-pretty'
 alias gs='g status -s'
 alias gd='clear; git diff'
 alias gdc='clear; git diff --cached'
