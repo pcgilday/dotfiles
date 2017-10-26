@@ -164,16 +164,19 @@ end
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" trying this out -> use ; not : for vim commands
+" use ; not : for quicker command entry
 nnoremap ; :
 
 " jj to escape insert mode
 inoremap jj <ESC>
 
-vnoremap <C-c> "*y
-vnoremap <C-v> <C-r><C-p>*
+" vnoremap <C-c> "*y
+" vnoremap <C-v> <C-r><C-p>*
 
-nnoremap <leader><space> :noh<cr>
+" clear search highlights
+nnoremap <C-c> :nohl<cr>
+
+" use tab to go to matching delim
 nnoremap <tab> %
 vnoremap <tab> %
 
