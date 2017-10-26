@@ -18,11 +18,12 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'flowtype/vim-flow'
-Plug 'crusoexia/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'suan/vim-instant-markdown'
 Plug 'w0rp/ale'
+Plug 'crusoexia/vim-monokai'
+Plug 'croaker/mustang-vim'
 
 " Lock in the plugin list.
 call plug#end()
@@ -87,6 +88,8 @@ let g:jsx_ext_required = 0
 set nocompatible " less vi compatible; therefore, more useful
 set modelines=0 " prevent some security vulnerbilities, I don't use modelines
 
+set t_Co=256 " moarr colors
+
 if has('autocmd')
   filetype plugin indent on
 endif
@@ -94,15 +97,16 @@ if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
 
+" colorscheme molokai
+colorscheme monokai
+" colorscheme mustang
+
 set laststatus=2
 set ruler
 set wildmenu
 " Change the mapleader from \ to ,
 let mapleader=","
 
-" colorscheme molokai
-colorscheme monokai
-set t_Co=256
 
 " set number " always show line numbers
 set relativenumber " show relative line numbers
