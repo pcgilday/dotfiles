@@ -180,6 +180,8 @@ nnoremap <C-c> :nohl<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
+nnoremap <C-\> :NERDTree<CR>
+
 " Pane navigation using vim nav commands
 nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
