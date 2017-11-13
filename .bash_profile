@@ -96,7 +96,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 ###################################
 # python config
 ###################################
-# export PYTHON_LOCAL=$HOME/.local
+export PYTHON_LOCAL=$HOME/.local
 # export PYTHON_CONFIGURE_OPTS="--enable-framework"
 
 source "$HOME/.aliases"
