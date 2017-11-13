@@ -16,6 +16,8 @@ alias resource='source ~/.bash_profile'
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 alias tmux='tmux -2'
+alias tn='tmux new -s'
+alias ta='tmux a -t'
 alias v='vim'
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
