@@ -17,13 +17,14 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'flowtype/vim-flow'
+" Plug 'flowtype/vim-flow'
 Plug 'tomasr/molokai'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'suan/vim-instant-markdown'
 Plug 'w0rp/ale'
 Plug 'crusoexia/vim-monokai'
 Plug 'croaker/mustang-vim'
+Plug 'jparise/vim-graphql'
 
 " Lock in the plugin list.
 call plug#end()
@@ -37,7 +38,7 @@ call plug#end()
 "
 " Ignore some folders and files for CtrlP indexing
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|coverage\|dist\|lib\|tmp$',
+  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|coverage\|dist\|flow-typed\|lib\|tmp$',
   \ 'file': '\.so$\|\.pyc$|\.dat$|\.DS_Store$'
   \ }
 
@@ -48,6 +49,9 @@ let g:ale_fixers = {
 \}
 
 let g:ale_fix_on_save = 1
+
+" use shift - i to toggle
+let NERDTreeShowHidden = 1
 
 "
 " scrooloose/nerdcommenter
@@ -68,12 +72,13 @@ let g:NERDCommentEmptyLines = 1
 "
 " flowtype/vim-flow
 "
-let g:flow#autoclose = 1
-let g:flow#enable = 0
+" let g:flow#autoclose = 1
+" let g:flow#enable = 0
 
 "
 " plangloss/vim-javascript
 "
+" enable flow syntax highlighting
 let g:javascript_plugin_flow = 1
 
 "
@@ -123,8 +128,8 @@ set nobackup
 set noswapfile
 
 " tab settings
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set softtabstop=0
 set expandtab
 
@@ -180,7 +185,7 @@ nnoremap <C-c> :nohl<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
-nnoremap <C-\> :NERDTree<CR>
+nnoremap <C-\> :NERDTreeToggle<CR>
 
 " Pane navigation using vim nav commands
 nnoremap <silent> <C-k> :wincmd k<CR>
