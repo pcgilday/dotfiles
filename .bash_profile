@@ -85,13 +85,17 @@ export PS1
 # Add GAE to front of path
 export PATH=$HOME/google_appengine:$PATH
 # Put the yarn/npm before usr/local (and yarn before npm)
-export PATH=$HOME/.yarn/bin:$HOME/npm/bin:$PATH
+export PATH=$HOME/.yarn/bin:$HOME/npm/bin:$HOME/npm/n/bin:$PATH
 # python local path
 export PATH=$HOME/.local/bin:$PATH
 # Put user bin first
 export PATH=$HOME/bin:$PATH
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Set N prefix - https://github.com/tj/n#additional-details
+# related to $HOME/npm/n/bin
+export N_PREFIX=$HOME/npm
 
 ###################################
 # python config
