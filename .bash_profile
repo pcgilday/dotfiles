@@ -81,6 +81,7 @@ export PS1
 ##########################
 # PATH
 ##########################
+export PYENV_ROOT=$HOME/.pyenv
 
 # Add GAE to front of path
 export PATH=$HOME/google_appengine:$PATH
@@ -88,6 +89,8 @@ export PATH=$HOME/google_appengine:$PATH
 export PATH=$HOME/.yarn/bin:$HOME/npm/bin:$HOME/npm/n/bin:$PATH
 # python local path
 export PATH=$HOME/.local/bin:$PATH
+# pyenv local path
+export PATH=$PYENV_ROOT/bin:$PATH
 # Put user bin first
 export PATH=$HOME/bin:$PATH
 # Add RVM to PATH for scripting
@@ -137,6 +140,13 @@ fi;
 # added by rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/patrick/google-cloud-sdk/path.bash.inc' ]; then source '/Users/patrick/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/Users/patrick/google-cloud-sdk/path.bash.inc' ]; then
+  source '/Users/patrick/google-cloud-sdk/path.bash.inc';
+fi
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/patrick/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/patrick/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/Users/patrick/google-cloud-sdk/completion.bash.inc' ]; then
+  source '/Users/patrick/google-cloud-sdk/completion.bash.inc';
+fi
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

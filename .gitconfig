@@ -7,6 +7,10 @@
 [includeIf "gitdir:~/repos/homezen/"]
     path = .gitconfig-homezen
 
+# override user info for work repos
+[includeIf "gitdir:~/repos/upside/"]
+    path = .gitconfig-upside
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
@@ -32,7 +36,7 @@
     prr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
     pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 
-    prune-up = remote update origin pcgilday --prune
+    prune-up = remote update origin --prune
 
 	# Switch to a branch, creating it if necessary
     go = checkout -B
