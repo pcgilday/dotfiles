@@ -38,10 +38,18 @@ alias path='echo -e ${PATH//:/\\n}'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\Chrome'
 alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 
+## TODO - these aren't aliases
 # Recursively find and replace in files
 # TODO make path optional and use current dir as default
 findreplace() {
-    find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
+  find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
+}
+
+dockcore() {
+  docker kill $(docker ps | grep "upsidetravel-docker.jfrog.io/core-db-schema:latest" | awk '{print $1}')
+  docker images rm $(docker ps | grep "upsidetravel-docker.jfrog.io/core-db-schema:latest" | awk '{print $1}')
+  docker pull   upsidetravel-docker.jfrog.io/core-db-schema:latest
+  docker run -d -p 3306:3306 --name coredb --rm upsidetravel-docker.jfrog.io/core-db-schema:latest
 }
 
 
@@ -65,8 +73,8 @@ alias comend='git add -A && git commit -av --amend --date=now'
 alias com='git add -A && git commit -av'
 alias rebm='git rebase master'
 
-alias gr='grep -Ir --color'
-alias gri='grep -Iri --color'
+alias gr="grep -Ir --color --exclude-dir 'node_modules' --exclude-dir '.git'"
+alias gri='gr -i'
 
 
 ####################
@@ -88,11 +96,10 @@ done
 
 
 #######################
-# HOMEZEN
+# UPSIDE // FIXME export from a .local file
 #######################
-alias api='cd ~/repos/homezen/hz-web-api'
-alias webapp='cd ~/repos/homezen/hz-webapp'
-alias apiclient='cd ~/repos/homezen/hz-api-client'
+alias hf='cd ~/repos/upside/horizon-frontend'
+alias mf='cd ~/repos/upside/meo-frontend'
 
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/

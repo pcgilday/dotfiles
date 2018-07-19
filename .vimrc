@@ -175,8 +175,8 @@ nnoremap ; :
 " jj to escape insert mode
 inoremap jj <ESC>
 
-" vnoremap <C-c> "*y
-" vnoremap <C-v> <C-r><C-p>*
+vnoremap <C-c> "*y
+vnoremap <C-v> <C-r><C-p>*
 
 " clear search highlights
 nnoremap <C-c> :nohl<cr>
@@ -194,12 +194,12 @@ nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
 
 " disable arrows to work on using vim nav/motion commands
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+" nnoremap <up> <nop>
+" nnoremap <down> <nop>
+" nnoremap <left> <nop>
+" nnoremap <right> <nop>
 
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
