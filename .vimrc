@@ -11,10 +11,13 @@ Plug 'scrooloose/nerdcommenter'
 " FIXME - remove vim-sensible so easier to see settings set
 " Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
 "Plug 'easymotion/vim-easymotion'
 "Plug 'Valloric/YouCompleteMe'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 " Plug 'flowtype/vim-flow'
@@ -25,6 +28,9 @@ Plug 'w0rp/ale'
 Plug 'crusoexia/vim-monokai'
 Plug 'croaker/mustang-vim'
 Plug 'jparise/vim-graphql'
+" fzf
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Lock in the plugin list.
 call plug#end()
@@ -192,6 +198,20 @@ nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
 nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
+
+" FZF
+"nmap ; :Buffers<CR>
+nmap <silent> <C-t> :Files<CR>
+nmap <silent> <C-p> :Files<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
+nmap <Leader>a :Ag<CR>
+
+nmap <Leader>o :e %:h/
+
+nmap <Leader>{ ysiw{<CR>
+" TODO shortcut for :sort
+" nmap <Leader>s :sort<CR>
 
 " disable arrows to work on using vim nav/motion commands
 " nnoremap <up> <nop>
