@@ -20,50 +20,6 @@
     editor = /usr/local/bin/vim
     excludesfile = ~/.gitignore-global
 
-[alias]
-
-	# Pretty graph view
-    graph-pretty = log --graph --date=relative --all --format=format:'%C(dim yellow)%h%C(reset) %C(cyan)%d%C(reset) %C(green)%s%C(reset) %C(dim yellow)<%an>%C(reset)'
-    log-pretty = log --abbrev-commit
-    # log-pretty = log --format='%C(dim yellow)commit: %h %C(cyan)%d%C(reset) %C(reset)%nAuthor: %an <%ae> %nDate: %ad %n%n%>>(4)%s %n%+b'
-
-	# grab from remote, i.e. prr upstream 55
-    prr = "!f() { git fetch -fu $1 refs/pull/$2/head:pr/$2; git checkout pr/$2; } ; f"
-
-    # pr/pr-clean - https://gist.github.com/gnarf/5406589
-    pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1; }; f"
-    # checkout pr branch TODO - use git pr above then checkout
-    prr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-    pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
-
-    prune-up = remote update origin --prune
-
-	# Switch to a branch, creating it if necessary
-    go = checkout -B
-	co = checkout
-	cp = cherry-pick
-	ad = add .
-	pl = pull -r
-	am = commit --amend
-	ca = commit -a
-	bd = branch -d
-	rp = remote prune pcgilday origin
-	ss = status -s
-	d = diff
-	# diff between master and HEAD
-	dm = diff master..HEAD
-	# diff show filenames only
-	df = diff --name-status
-	# show files different between master and HEAD
-	dfm = diff --name-status master..HEAD
-
-
-	# Show verbose output about tags, branches or remotes
-    branches = branch -a
-    remotes = remote -v
-
-	# Interactive rebase with the given number of latest commits
-    reb = "!r() { git rebase -i HEAD~$1; }; r"
 [apply]
     # Detect whitespace errors when applying a patch
     whitespace = fix
@@ -89,3 +45,38 @@
 	untracked = cyan
 [color "decorate"]
 	tags = cyan
+
+[alias]
+	# Pretty graph view
+    graph-pretty = log --graph --date=relative --all --format=format:'%C(dim yellow)%h%C(reset) %C(cyan)%d%C(reset) %C(green)%s%C(reset) %C(dim yellow)<%an>%C(reset)'
+    log-pretty = log --abbrev-commit
+    # log-pretty = log --format='%C(dim yellow)commit: %h %C(cyan)%d%C(reset) %C(reset)%nAuthor: %an <%ae> %nDate: %ad %n%n%>>(4)%s %n%+b'
+
+	# grab from remote, i.e. prr upstream 55
+    prr = "!f() { git fetch -fu $1 refs/pull/$2/head:pr/$2; git checkout pr/$2; } ; f"
+
+    # pr/pr-clean - https://gist.github.com/gnarf/5406589
+    pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1; }; f"
+    # checkout pr branch TODO - use git pr above then checkout
+    prr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+
+    prune-up = remote update origin --prune
+
+	# Switch to a branch, creating it if necessary
+    go = checkout -B
+	co = checkout
+	cp = cherry-pick
+	# diff between master and HEAD
+	dm = diff master..HEAD
+	# show files different between master and HEAD
+	dfm = diff --name-status master..HEAD
+	# diff show filenames only
+	df = diff --name-status
+
+	# Show verbose output about tags, branches or remotes
+	branches = branch -a
+	remotes = remote -v
+
+	# Interactive rebase with the given number of latest commits
+	reb = "!r() { git rebase -i HEAD~$1; }; r"
