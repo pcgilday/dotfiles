@@ -28,57 +28,47 @@ alias l="ls -lF ${colorflag}"
 alias la="ls -laF ${colorflag}"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-alias yd='yarn debug'
+## node
+alias dev='nodemon index.js | pino-pretty'
 alias ys='yarn storybook'
+alias nd='node --inspect-brk '
 
 # Get macOS Software Updates, and update Homebrew and it's packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
+alias brewup='brew update; brew upgrade; brew cleanup'
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
+# Launch Applications
 # Google Chrome
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\Chrome'
 alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
-
-## TODO - these aren't aliases
-# Recursively find and replace in files
-# TODO make path optional and use current dir as default
-findreplace() {
-  find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
-}
-
-dockcore() {
-  docker kill $(docker ps | grep "upsidetravel-docker.jfrog.io/core-db-schema:latest" | awk '{print $1}')
-  docker images rm $(docker ps | grep "upsidetravel-docker.jfrog.io/core-db-schema:latest" | awk '{print $1}')
-  docker pull   upsidetravel-docker.jfrog.io/core-db-schema:latest
-  docker run -d -p 3306:3306 --name coredb --rm upsidetravel-docker.jfrog.io/core-db-schema:latest
-}
-
 
 ###################
 # GIT SHORTCUTS
 ###################
 alias git='hub'
 alias g='git'
-alias gg='g graph-pretty'
-alias gl='g log-pretty'
+alias gg='g graph-pretty' # graph-pretty defined in .gitconfig
+alias gl='g log-pretty' # log-pretty defined in .gitconfig
 alias gs='g status -s'
 alias gd='clear; git diff'
 alias gdc='clear; git diff --cached'
 alias gp='g pull -r'
 alias gb='g branch'
 alias gm='g co master'
+# go to the root directory in the repo
 alias groot='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
 
-# Commit all changes to last commit
-alias comend='git add -A && git commit -av --amend --date=now'
-alias com='git add -A && git commit -av'
+alias gh='gh-home' # shortcut for gh-home node script
+
+alias com='git add -A && git commit -av' # add all, commit
+alias comend='git add -A && git commit -av --amend --date=now' # add all, amend commit
 alias rebm='git rebase master'
 
 alias gr="grep -Ir --color --exclude-dir 'node_modules' --exclude-dir '.git'"
 alias gri='gr -i'
-
 
 ####################
 # NETWORKING
@@ -97,14 +87,26 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
     alias "$method"="lwp-request -m '$method'"
 done
 
+##############################################
+## TODO - these aren't aliases
+##############################################
+# Recursively find and replace in files
+# TODO make path optional and use current dir as default
+findreplace() {
+  find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
+}
 
-#######################
-# UPSIDE // FIXME export from a .local file
-#######################
-alias hf='cd ~/repos/upside/horizon-frontend'
-alias mf='cd ~/repos/upside/meo-frontend'
+# pull down latest core db from docker and restart local container
+dockcore() {
+  docker kill $(docker ps | grep "upsidetravel-docker.jfrog.io/core-db-schema:latest" | awk '{print $1}')
+  docker images rm $(docker ps | grep "upsidetravel-docker.jfrog.io/core-db-schema:latest" | awk '{print $1}')
+  docker pull   upsidetravel-docker.jfrog.io/core-db-schema:latest
+  docker run -d -p 3306:3306 --name coredb --rm upsidetravel-docker.jfrog.io/core-db-schema:latest
+}
 
+# launch medis from anywhere
+medis() {
+  cd ~/repos/medis
+  yarn run electron
+}
 
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume output volume 100'"
