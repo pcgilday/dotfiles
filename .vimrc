@@ -19,6 +19,7 @@ Plug 'editorconfig/editorconfig-vim'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
 " Plug 'flowtype/vim-flow'
 Plug 'tomasr/molokai'
@@ -112,7 +113,6 @@ endif
 colorscheme monokai
 " colorscheme mustang
 
-set laststatus=2
 set ruler
 set wildmenu
 " Change the mapleader from \ to ,
@@ -150,6 +150,8 @@ set pastetoggle=<F2> " toggle 'paste mode'
 
 
 " FIXME
+" set laststatus=2
+" set statusline=lightsabre!
 " set statusline=%f
 " set statusline+=%m
 " set statusline+=%=
@@ -210,6 +212,9 @@ nmap <Leader>a :Ag<CR>
 nmap <Leader>o :e %:h/
 
 nmap <Leader>{ ysiw{<CR>
+
+" setup set replace for word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 " TODO shortcut for :sort
 " nmap <Leader>s :sort<CR>
 
