@@ -4,3 +4,4 @@
 .env
 dump.rdb
 package-lock.json
+node_modules
