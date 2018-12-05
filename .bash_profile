@@ -77,6 +77,9 @@ PS1+="\$(prompt_git \"\[${white}\] \[${violet}\]\" \"\[${blue}\]\")"; # Git repo
 PS1+="${reset}\n$ " # `$` (and reset color)
 export PS1
 
+##########################
+# end bash prompt
+##########################
 
 ##########################
 # PATH
@@ -95,6 +98,8 @@ export PATH=$PYENV_ROOT/bin:$PATH
 export PATH=$HOME/bin:$PATH
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
+# Add code (vscode) command to path
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Set N prefix - https://github.com/tj/n#additional-details
 # related to $HOME/npm/n/bin
@@ -104,7 +109,7 @@ export N_PREFIX=$HOME/npm
 # python config
 ###################################
 export PYTHON_LOCAL=$HOME/.local
-# export PYTHON_CONFIGURE_OPTS="--enable-framework"
+export PIP_USER=yes # default pip to install in ~/.local
 
 source "$HOME/.aliases"
 # any private config that should not get saved to repo
@@ -127,26 +132,11 @@ if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completio
 fi;
 
 
-# FIXME - this appears unneeded by looking at repo
- # added for npm-completion https://github.com/Jephuff/npm-bash-completion
-# NPM_COMPLETION_PATH="/Users/patrick/npm/lib/node_modules/npm-completion"
-# source $PATH_TO_NPM_COMPLETION/npm-completion.sh
-
-
 ##########################################################
 # Below are auto added by tooling
 ##########################################################
 
-# added by rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/patrick/google-cloud-sdk/path.bash.inc' ]; then
-  source '/Users/patrick/google-cloud-sdk/path.bash.inc';
-fi
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/patrick/google-cloud-sdk/completion.bash.inc' ]; then
-  source '/Users/patrick/google-cloud-sdk/completion.bash.inc';
-fi
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
