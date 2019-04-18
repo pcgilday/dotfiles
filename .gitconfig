@@ -1,54 +1,54 @@
 
 [user]
-	name = Patrick Gilday
-	email = pcgilday@users.noreply.github.com
+  name = Patrick Gilday
+  email = pcgilday@users.noreply.github.com
 
 # override user info for work repos
 [includeIf "gitdir:~/repos/upside/"]
-    path = .gitconfig-upside
+  path = .gitconfig-upside
 
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
 
 [core]
-    editor = /usr/local/bin/vim
-    excludesfile = ~/.gitignore-global
+  editor = /usr/local/bin/vim
+  excludesfile = ~/.gitignore-global
 
 [apply]
-    # Detect whitespace errors when applying a patch
-    whitespace = fix
+  # Detect whitespace errors when applying a patch
+  whitespace = fix
 [push]
-	default = simple
+  default = simple
 [color]
-	branch = auto
-	diff = auto
-	status = auto
-	ui = auto
+  branch = auto
+  diff = auto
+  status = auto
+  ui = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [color "decorate"]
-	tags = cyan
+  tags = cyan
 
 [alias]
-	# Pretty graph view
+  # Pretty graph view
   graph-pretty = log --graph --date=relative --all --format=format:'%C(dim yellow)%h%C(reset) %C(cyan)%d%C(reset) %C(green)%s%C(reset) %C(dim yellow)<%an>%C(reset)'
   log-pretty = log --abbrev-commit
   # log-pretty = log --format='%C(dim yellow)commit: %h %C(cyan)%d%C(reset) %C(reset)%nAuthor: %an <%ae> %nDate: %ad %n%n%>>(4)%s %n%+b'
 
-	# grab from remote, i.e. prr upstream 55
+  # grab from remote, i.e. prr upstream 55
   prr = "!f() { git fetch -fu $1 refs/pull/$2/head:pr/$2; git checkout pr/$2; } ; f"
 
   # pr/pr-clean - https://gist.github.com/gnarf/5406589
@@ -60,20 +60,20 @@
   prune-up = remote update origin --prune
   huh = for-each-ref --count=5 --sort=-committerdate refs/heads/
 
-	# Switch to a branch, creating it if necessary
+  # Switch to a branch, creating it if necessary
   go = checkout -B
-	co = checkout
-	cp = cherry-pick
-	# diff between master and HEAD
-	dm = diff master..HEAD
-	# show files different between master and HEAD
-	dfm = diff --name-status master..HEAD
-	# diff show filenames only
-	df = diff --name-status
+  co = checkout
+  cp = cherry-pick
+  # diff between master and HEAD
+  dm = diff master..HEAD
+  # show files different between master and HEAD
+  dfm = diff --name-status master..HEAD
+  # diff show filenames only
+  df = diff --name-status
 
-	# Show verbose output about tags, branches or remotes
-	branches = branch -a
-	remotes = remote -v
+  # Show verbose output about tags, branches or remotes
+  branches = branch -a
+  remotes = remote -v
 
-	# Interactive rebase with the given number of latest commits
-	reb = "!r() { git rebase -i HEAD~$1; }; r"
+  # Interactive rebase with the given number of latest commits
+  reb = "!r() { git rebase -i HEAD~$1; }; r"
