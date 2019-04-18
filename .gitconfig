@@ -4,10 +4,6 @@
 	email = pcgilday@users.noreply.github.com
 
 # override user info for work repos
-[includeIf "gitdir:~/repos/homezen/"]
-    path = .gitconfig-homezen
-
-# override user info for work repos
 [includeIf "gitdir:~/repos/upside/"]
     path = .gitconfig-upside
 
