@@ -5,3 +5,5 @@
 dump.rdb
 package-lock.json
 node_modules
+.ipynb_checkpoints
+.vscode

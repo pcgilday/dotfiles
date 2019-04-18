@@ -90,6 +90,11 @@ done
 ##############################################
 ## TODO - these aren't aliases
 ##############################################
+
+git-prune() {
+  git checkout master; git pull;
+  git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
+}
 # Recursively find and replace in files
 # TODO make path optional and use current dir as default
 findreplace() {
@@ -99,6 +104,6 @@ findreplace() {
 # launch medis from anywhere
 medis() {
   cd ~/repos/medis
-  yarn run electron
+  yarn run electron dist/main/index.js
 }
 
