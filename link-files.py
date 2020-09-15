@@ -4,27 +4,26 @@ import os
 import errno
 
 HOME = os.path.expanduser('~')
-BLACKLIST = [
-    'README.md',
-    'link-files.py',
-    '.git',
+DOTFILES = [
+    '.aliases',
+    '.gitconfig',
+    '.gitconfig-upside',
+    '.gitignore-global',
+    '.vimrc',
+    '.zshrc'
 ]
-ALL_FILES = os.listdir('.')
 
-# This works, but could be cleaner
-FILES = [f for f in os.listdir('.')
-         if f not in BLACKLIST and not f.endswith('.swp')]
 
-print '\nlinking the following dotfiles to homedir:\n\n', '\n'.join(FILES), '\n'
+print('\nlinking the following dotfiles to homedir:\n\n', '\n'.join(DOTFILES), '\n')
 
-for f in FILES:
+for f in DOTFILES:
     src = HOME + '/dotfiles/' + f
     dest = HOME + '/' + f
     try:
         os.symlink(src, dest)
-    except OSError, err:
+    except OSError as err:
         if err.errno == errno.EEXIST:
-            print 'removing existing', dest
+            print('removing existing', dest)
             os.remove(dest)
             os.symlink(src, dest)
-            print 'linked', src, 'to', dest, '\n'
+            print(f"linked {src} to {dest}\n")
