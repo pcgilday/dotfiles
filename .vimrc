@@ -1,230 +1,173 @@
-""""""""""""""""""""""""""""""""
-" vim-plug config
-"""""""""""""""""""""""""""""""""
-
-" Initialise vim-plug
-call plug#begin('~/.vim/plugged')
-
-" load plugins
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-" FIXME - remove vim-sensible so easier to see settings set
-" Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-surround'
-Plug 'editorconfig/editorconfig-vim'
-"Plug 'easymotion/vim-easymotion'
-"Plug 'Valloric/YouCompleteMe'
-"Plug 'ctrlpvim/ctrlp.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'mxw/vim-jsx'
-" Plug 'flowtype/vim-flow'
-Plug 'tomasr/molokai'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'suan/vim-instant-markdown'
-Plug 'w0rp/ale'
-Plug 'crusoexia/vim-monokai'
-Plug 'croaker/mustang-vim'
-Plug 'jparise/vim-graphql'
-" fzf
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-
-" Lock in the plugin list.
-call plug#end()
-
-""""""""""""""""""""""""""""""""""""""
-" PLUGIN CONFIGS
-""""""""""""""""""""""""""""""""""""""
-
-"
-" ctrlpvim/ctrlp.vim
-"
-" Ignore some folders and files for CtrlP indexing
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|coverage\|dist\|flow-typed\|lib\|tmp$',
-  \ 'file': '\.so$\|\.pyc$|\.dat$|\.DS_Store$'
-  \ }
-
-
-" :ALEFix will try and fix your JS code with ESLint.
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\}
-
-let g:ale_fix_on_save = 1
-
-" use shift - i to toggle
-let NERDTreeShowHidden = 1
-
-"
-" scrooloose/nerdcommenter
-"
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-" let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-"
-" flowtype/vim-flow
-"
-" let g:flow#autoclose = 1
-" let g:flow#enable = 0
-
-"
-" plangloss/vim-javascript
-"
-" enable flow syntax highlighting
-let g:javascript_plugin_flow = 1
-
-"
-" mxw/vim-jsx
-"
-let g:jsx_ext_required = 0
-
-
-""""""""""""""""""""""""""""""""""
-" SETTINGS
-""""""""""""""""""""""""""""""""""
+""" BASE SETTINGS
 set nocompatible " less vi compatible; therefore, more useful
-set modelines=0 " prevent some security vulnerbilities, I don't use modelines
-
-set t_Co=256 " moarr colors
-
-if has('autocmd')
-  filetype plugin indent on
-endif
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
-endif
-
-" colorscheme molokai
-colorscheme monokai
-" colorscheme mustang
-
-set ruler
-set wildmenu
-" Change the mapleader from \ to ,
-let mapleader=","
-
-
-" set number " always show line numbers
-set relativenumber " show relative line numbers
-set incsearch " show search matches while typing
-set hlsearch " highlight search terms
-set showmatch
+set splitbelow
+set splitright
+set ttyfast " Send more characters for redraws
+set mouse=a "Enable mouse use in all modes
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set autoindent " always set autoindenting on
-set copyindent " copy the previous indentation on autoindenting
+set expandtab " indent using spaces instead of tabs
+set tabstop=2
+set shiftwidth=2
+set showmatch
+set relativenumber " show relative line numbers
 set ignorecase
 set smartcase " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set tw=72
-set nobackup
-set noswapfile
-
-" tab settings
-set tabstop=2
-set shiftwidth=2
-set softtabstop=0
-set expandtab
-
-set history=1000    " remember more commands and search history
-set undolevels=1000 " use many muchos levels of undo
-set wildignore=*.swp,*.bak,*.pyc,*.class
-set title           " change the terminal's title
-set visualbell      " don't beep
-set noerrorbells    " don't beep
-
-set pastetoggle=<F2> " toggle 'paste mode'
-
-
-" FIXME
-" set laststatus=2
-" set statusline=lightsabre!
-" set statusline=%f
-" set statusline+=%m
-" set statusline+=%=
-" set statusline+=%l
-" set statusline+=/
-" set statusline+=%c
-
-set splitbelow
-set splitright
-
-set ttyfast " Send more characters for redraws
-set mouse=a " Enable mouse use in all modes
-if has("mouse_sgr")
-    set ttymouse=sgr
-else
-    set ttymouse=xterm2
-end
-
-""""""""""""""""""""""""""""""""""
-" MAPPINGS
-""""""""""""""""""""""""""""""""""
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
 " use ; not : for quicker command entry
 nnoremap ; :
+" set mapleader to <space>
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 
-" jj to escape insert mode
-inoremap jj <ESC>
+""" MAPPINGS
+" move up/down wrapped lines
+map j gj
+map k gk
 
-vnoremap <C-c> "*y
-vnoremap <C-v> <C-r><C-p>*
-
-" clear search highlights
-nnoremap <C-c> :nohl<cr>
+" Pane navigation using vim nav commands
+nnoremap <silent> <Leader>k :wincmd k<cr>
+nnoremap <silent> <Leader>j :wincmd j<cr>
+nnoremap <silent> <Leader>h :wincmd h<cr>
+nnoremap <silent> <Leader>l :wincmd l<cr>
 
 " use tab to go to matching delim
 nnoremap <tab> %
 vnoremap <tab> %
 
-nnoremap <C-\> :NERDTreeToggle<CR>
+" clear search highlights
+nnoremap <Leader>c :nohl<cr>
 
-" Pane navigation using vim nav commands
-nnoremap <silent> <C-k> :wincmd k<CR>
-nnoremap <silent> <C-j> :wincmd j<CR>
-nnoremap <silent> <C-h> :wincmd h<CR>
-nnoremap <silent> <C-l> :wincmd l<CR>
+" copy outside vim buffer
+vnoremap <Leader>c "*y
 
-" FZF
-"nmap ; :Buffers<CR>
-nmap <silent> <C-t> :Files<CR>
-nmap <silent> <C-p> :Files<CR>
+
+""" SETUP PLUGINS VIA VIMPLUG
+call plug#begin('~/.vim/plugged') " Initialise vim-plug
+
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'rust-lang/rust.vim'
+Plug 'pangloss/vim-javascript'
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'json', 'xml']}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb' " enables GBrowse for github
+Plug 'vim-airline/vim-airline'
+" Plug 'reedes/vim-pencil'
+
+" fzf
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+call plug#end() " Lock in the plugin list.
+
+
+colorscheme dracula
+
+
+""" COC.NVIM SETTINGS
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+
+" NERDTREE SETTINGS
+nnoremap <Leader>\ :NERDTreeToggle<CR> 
+let NERDTreeShowHidden = 1
+
+
+" FZF SETTINGS
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>a :Ag<CR>
 
-nmap <Leader>o :e %:h/
 
-nmap <Leader>{ ysiw{<CR>
+" Commentary settings
+nmap <Leader>/ :Commentary<CR>
+vmap <Leader>/ :Commentary<CR>
+nmap <Leader>/ :Commentary<CR>
 
-" setup set replace for word under cursor
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
-" TODO shortcut for :sort
-" nmap <Leader>s :sort<CR>
+""" AIRLINE
+" let g:airline_section_a=''
+" let g:airline_section_b=''
+let g:airline_section_x=''
+let g:airline_section_y=''
+let g:airline_section_z = '%3l/%L:%3v'
+" use shortform text for modes
+let g:airline_mode_map = {
+    \ '__'     : '-',
+    \ 'c'      : 'C',
+    \ 'i'      : 'I',
+    \ 'ic'     : 'I',
+    \ 'ix'     : 'I',
+    \ 'n'      : 'N',
+    \ 'multi'  : 'M',
+    \ 'ni'     : 'N',
+    \ 'no'     : 'N',
+    \ 'R'      : 'R',
+    \ 'Rv'     : 'R',
+    \ 's'      : 'S',
+    \ 'S'      : 'S',
+    \ ''     : 'S',
+    \ 't'      : 'T',
+    \ 'v'      : 'V',
+    \ 'V'      : 'V',
+    \ ''     : 'V',
+    \ }
 
-" disable arrows to work on using vim nav/motion commands
-" nnoremap <up> <nop>
-" nnoremap <down> <nop>
-" nnoremap <left> <nop>
-" nnoremap <right> <nop>
 
-" inoremap <up> <nop>
-" inoremap <down> <nop>
-" inoremap <left> <nop>
-" inoremap <right> <nop>
+""" vim-jsx-typescript
+
+" using dracula theme colors for 
+hi tsxTagName ctermfg=212
+hi tsxCloseTagName ctermfg=212
+hi tsxComponentName ctermfg=159 cterm=italic
+hi tsxCloseComponentName ctermfg=159 cterm=italic
+" hi tsxTag ctermfg=210
+" hi tsxCloseTag ctermfg=210
+hi tsxAttrib ctermfg=120 cterm=italic
+
+" hi tsxString ctermfg=120
+" hi tsxCloseString ctermfg=120
+
+hi tsxAttributeBraces ctermfg=212
+hi tsxEqual ctermfg=212
+"
+" hi ReactState ctermfg=120
+" hi ReactProps ctermfg=120
+" hi ApolloGraphQL guifg=#CB886B
+" hi Events ctermfg=204 guifg=#56B6C2
+" hi ReduxKeywords ctermfg=204 guifg=#C678DD
+" hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
+" hi WebBrowser ctermfg=204 guifg=#56B6C2
+" hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
+

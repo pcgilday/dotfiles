@@ -7,3 +7,6 @@ package-lock.json
 node_modules
 .ipynb_checkpoints
 .vscode
+.yalc
+yalc.lock
+.vim/

@@ -1,26 +1,13 @@
 #!/bin/bash
 
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-    colorflag="--color"
-    export LS_COLORS='no=00:fi=00:di=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
-else # macOS `ls`
-    colorflag="-G"
-    export LSCOLORS='GxFxCxDxBxegedabagaced'
-fi
-
-#######################
-# GENERAL
-#######################
-alias resource='source ~/.bash_profile'
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
-alias tmux='tmux -2'
-alias tn='tmux new -s'
-alias ta='tmux a -t'
-alias v='vim'
+alias v='nvim'
+
+alias zshconfig="v ~/.zshrc"
+alias ohmyzsh="v ~/.oh-my-zsh"
+
 alias vimrc='vim ~/.vimrc'
-alias bp='vim ~/.bash_profile'
+
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
 # alias la='ls -a'
@@ -28,11 +15,6 @@ alias l="ls -lF ${colorflag}"
 alias la="ls -laF ${colorflag}"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-## node
-alias dev='nodemon index.js | pino-pretty'
-alias ys='yarn storybook'
-alias nd='node --inspect-brk '
-
 # Get macOS Software Updates, and update Homebrew and it's packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
 alias brewup='brew update; brew upgrade; brew cleanup'
@@ -40,39 +22,39 @@ alias brewup='brew update; brew upgrade; brew cleanup'
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# Launch Applications
-# Google Chrome
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\Chrome'
-alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
-
-###################
-# GIT SHORTCUTS
-###################
-alias git='hub'
-alias g='git'
+## git
 alias gg='g graph-pretty' # graph-pretty defined in .gitconfig
-alias gl='g log-pretty' # log-pretty defined in .gitconfig
-alias gs='g status -s'
-alias gd='clear; git diff'
-alias gdc='clear; git diff --cached'
-alias gp='g pull -r'
-alias gb='g branch'
-alias gm='g co master'
-# go to the root directory in the repo
-alias groot='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
-
-alias gh='gh-home' # shortcut for gh-home node script
-
 alias com='git add -A && git commit -av' # add all, commit
 alias comend='git add -A && git commit -av --amend --date=now' # add all, amend commit
 alias rebm='git rebase master'
 
+## python
+alias ca='conda activate'
+
+## node
+# alias dev='nodemon index.js | pino-pretty'
+alias ys='yarn start'
+
+## go
+alias gorun='go run -mod=vendor'
+alias gobuild='go build -mod=vendor'
+
+## rust
+alias gocargo='go build && go run'
+alias cb='cargo build'
+alias cr='cargo run'
+
+# random
+alias learningsblog='nvim ~/repos/patrick/learnings-blog'
+alias blog='cd ~/repos/patrick/writing; nvim .'
+alias notes='nvim ~/Documents/notes'
+
+# grep helpers - although mostly use ag these days
 alias gr="grep -Ir --color --exclude-dir 'node_modules' --exclude-dir '.git'"
 alias gri='gr -i'
 
-####################
-# NETWORKING
-####################
+
+## NETWORKING
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Show active network interfaces
@@ -82,19 +64,48 @@ alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-    alias "$method"="lwp-request -m '$method'"
-done
+## navigation to common dirs
+alias toolbox='cd ~/repos/patrick/toolbox'
+alias patrick='cd ~/repos/patrick'
+alias dotfiles='cd ~/dotfiles'
+alias up='cd ~/repos/upside'
 
-##############################################
-## TODO - these aren't aliases
-##############################################
+## upside navigation aliases
+alias vs='cd ~/repos/upside/vendor-service'
+alias ups='cd ~/repos/upside/universal-pricing-service'
+alias tcf='cd ~/repos/upside/travel-change-frontend'
+alias hf='cd ~/repos/upside/horizon-frontend'
+alias pms='cd ~/repos/upside/package-mod-service'
+alias pt='cd ~/repos/upside/platform-tests'
+alias pnrs='cd ~/Documents/upside/pnrs'
+alias hss='cd ~/repos/upside/hotel-shopping-service'
+alias his='cd ~/repos/upside/hotel-inventory-service'
+alias pas='cd ~/repos/upside/package-assembly-service'
+alias rss='cd ~/repos/upside/rapid-shopping-service'
+alias sandbox='cd ~/repos/sandbox'
+alias updocs='cd ~/Documents/upside'
+alias theia='cd ~/repos/upside/theia'
+
+
+## helper shortcuts
+alias readpocket='python ~/repos/patrick/toolbox/pocket.py'
+
+
+
+## functions below, but keeping in aliases is simpler org wise
 
 git-prune() {
   git checkout master; git pull;
   git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
+  git pr-clean
 }
+
+git-refresh() {
+  git checkout master; git pull;
+  git checkout -;
+  git rebase master;
+}
+
 # Recursively find and replace in files
 # TODO make path optional and use current dir as default
 findreplace() {
@@ -107,3 +118,11 @@ medis() {
   yarn run electron dist/main/index.js
 }
 
+## Upside functions
+# pull down latest core db from docker and restart local container
+dockcore() {
+  docker kill $(docker ps | grep "upsidetravel-docker.jfrog.io/core-db-schema:latest" | awk '{print $1}')
+  docker images rm $(docker ps | grep "upsidetravel-docker.jfrog.io/core-db-schema:latest" | awk '{print $1}')
+  docker pull   upsidetravel-docker.jfrog.io/core-db-schema:latest
+  docker run -d -p 3306:3306 --name coredb --rm upsidetravel-docker.jfrog.io/core-db-schema:latest
+}

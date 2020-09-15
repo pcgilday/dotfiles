@@ -1,0 +1,114 @@
+
+" set before deoplete plugin
+let g:python3_host_prog='/usr/local/bin/python3'
+source ~/dotfiles/plugins.vim
+
+""""""""""""""""""""""""""""""""""
+" SETTINGS
+""""""""""""""""""""""""""""""""""
+set nocompatible " less vi compatible; therefore, more useful
+set modelines=0 " prevent some security vulnerbilities, I don't use modelines
+
+set ruler
+set wildmenu
+" Change the mapleader from \ to ,
+let mapleader=","
+
+
+set autoindent " always set autoindenting on
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set copyindent " copy the previous indentation on autoindenting
+set hlsearch " highlight search terms - nvim default
+set ignorecase
+set incsearch " show search matches while typing - nvim default
+" set nobackup
+" set noswapfile
+set relativenumber " show relative line numbers
+set showmatch
+set smartcase " ignore case if search pattern is all lowercase, case-sensitive otherwise
+set tw=72
+
+" tab settings
+set tabstop=2
+set shiftwidth=2
+set softtabstop=0
+set expandtab
+
+set history=1000    " remember more commands and search history
+set noerrorbells    " don't beep
+set title           " change the terminal's title
+set undolevels=1000 " use many muchos levels of undo
+set visualbell      " don't beep
+set wildignore=*.swp,*.bak,*.pyc,*.class
+
+set pastetoggle=<F2> " toggle 'paste mode'
+
+set splitbelow
+set splitright
+
+set ttyfast " Send more characters for redraws
+set mouse=a " Enable mouse use in all modes
+" if has("mouse_sgr")
+"     set ttymouse=sgr
+" else
+"     set ttymouse=xterm2
+" end
+"
+
+set t_Co=256 " moarr colors
+
+if has('autocmd')
+  filetype plugin indent on
+endif
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
+  colorscheme eldar
+endif
+
+""""""""""""""""""""""""""""""""""
+" MAPPINGS
+""""""""""""""""""""""""""""""""""
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" use ; not : for quicker command entry
+nnoremap ; :
+
+" jj to escape insert mode
+inoremap jj <ESC>
+
+vnoremap <C-c> "*y
+vnoremap <C-v> <C-r><C-p>*
+
+" clear search highlights
+nnoremap <C-c> :nohl<cr>
+
+" use tab to go to matching delim
+nnoremap <tab> %
+vnoremap <tab> %
+
+nnoremap <C-\> :NERDTreeToggle<CR>
+
+" Pane navigation using vim nav commands
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
+
+" FZF
+"nmap ; :Buffers<CR>
+nmap <silent> <C-t> :Files<CR>
+nmap <silent> <C-p> :Files<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
+nmap <Leader>a :Ag<CR>
+
+nmap <Leader>o :e %:h/
+
+nmap <Leader>{ ysiw{<CR>
+
+" setup set replace for word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+" TODO shortcut for :sort
+" nmap <Leader>s :sort<CR>
