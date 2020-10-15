@@ -53,6 +53,7 @@ alias notes='nvim ~/Documents/notes'
 alias gr="grep -Ir --color --exclude-dir 'node_modules' --exclude-dir '.git'"
 alias gri='gr -i'
 
+alias pull="g prr"
 
 ## NETWORKING
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
