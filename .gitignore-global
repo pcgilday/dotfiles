@@ -1,7 +1,7 @@
 *.swp
 .DS_Store
 *.DS_Store
-.env
+# .env
 dump.rdb
 package-lock.json
 node_modules

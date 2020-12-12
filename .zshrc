@@ -27,6 +27,11 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.private
 
+# export FZF_DEFAULT_COMMAND='ag --hidden --ignore node_modules -g '
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Setting ag as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 export NVM_DIR="$HOME/.nvm"
 # This loads nvm
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
