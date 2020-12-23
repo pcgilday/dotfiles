@@ -66,31 +66,7 @@ alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 ## navigation to common dirs
-alias toolbox='cd ~/repos/patrick/toolbox'
-alias patrick='cd ~/repos/patrick'
 alias dotfiles='cd ~/dotfiles'
-alias up='cd ~/repos/upside'
-
-## upside navigation aliases
-alias vs='cd ~/repos/upside/vendor-service'
-alias ups='cd ~/repos/upside/universal-pricing-service'
-alias tcf='cd ~/repos/upside/travel-change-frontend'
-alias hf='cd ~/repos/upside/horizon-frontend'
-alias pms='cd ~/repos/upside/package-mod-service'
-alias pt='cd ~/repos/upside/platform-tests'
-alias pnrs='cd ~/Documents/upside/pnrs'
-alias hss='cd ~/repos/upside/hotel-shopping-service'
-alias his='cd ~/repos/upside/hotel-inventory-service'
-alias pas='cd ~/repos/upside/package-assembly-service'
-alias rss='cd ~/repos/upside/rapid-shopping-service'
-alias sandbox='cd ~/repos/sandbox'
-alias updocs='cd ~/Documents/upside'
-alias theia='cd ~/repos/upside/theia'
-
-
-## helper shortcuts
-alias readpocket='python ~/repos/patrick/toolbox/pocket.py'
-
 
 
 ## functions below, but keeping in aliases is simpler org wise
