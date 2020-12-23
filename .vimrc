@@ -120,7 +120,7 @@ endif
 
 
 " NERDTREE SETTINGS
-nnoremap <Leader>\ :NERDTreeToggle<CR> 
+nnoremap <Leader>b :NERDTreeToggle<CR> 
 let NERDTreeShowHidden = 1
 
 nnoremap <Leader>p :silent %!prettier --stdin-filepath %<CR>
