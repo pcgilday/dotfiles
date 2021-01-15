@@ -128,7 +128,7 @@ nnoremap <Leader>p :silent %!prettier --stdin-filepath %<CR>
 
 " FZF SETTINGS
 " let g:fzf_layout = { 'window': '10split enew' }
-nmap <Leader>t :Files<CR>
+nmap <Leader>f :Files<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>a :Ag<CR>
 
