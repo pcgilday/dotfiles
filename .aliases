@@ -5,8 +5,9 @@ alias v='nvim'
 
 alias zshconfig="v ~/.zshrc"
 alias ohmyzsh="v ~/.oh-my-zsh"
+alias rs="source ~/.zshrc"
 
-alias vimrc='vim ~/.vimrc'
+alias vimrc='nvim ~/.vimrc'
 
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
@@ -103,3 +104,4 @@ dockcore() {
   docker pull   upsidetravel-docker.jfrog.io/core-db-schema:latest
   docker run -d -p 3306:3306 --name coredb --rm upsidetravel-docker.jfrog.io/core-db-schema:latest
 }
+

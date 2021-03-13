@@ -3,9 +3,12 @@
   name = Patrick Gilday
   email = pcgilday@users.noreply.github.com
 
+[hub]
+	protocol = ssh
+
 # override user info for work repos
-[includeIf "gitdir:~/repos/upside/"]
-  path = .gitconfig-upside
+[includeIf "gitdir:~/repos/mr/"]
+  path = .gitconfig-mr
 
 [filter "lfs"]
   clean = git-lfs clean %f
@@ -13,7 +16,7 @@
   required = true
 
 [core]
-  editor = /usr/local/bin/vim
+  ; editor = /usr/local/bin/vim
   excludesfile = ~/.gitignore-global
 
 [apply]
