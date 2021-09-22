@@ -61,6 +61,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-rhubarb' " enables GBrowse for github
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rails'
 " Plug 'vim-airline/vim-airline'
 " Plug 'reedes/vim-pencil'
 

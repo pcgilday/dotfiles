@@ -1,4 +1,3 @@
-
 # Put user bin first
 export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:$PATH
 export PATH=$PATH:$HOME/.local/bin
@@ -6,14 +5,24 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Add code (vscode) command to path
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # why is this needed, should be linked to main brew bin?
-export PATH="$PATH:/usr/local/Cellar/postgresql@12/12.5/bin"
 # Add RVM to PATH for scripting. 
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:/usr/local/Cellar/postgresql@12/12.6_2/bin"
+export PATH=/Users/patrick.gilday/.pgo/pgo:$PATH
 
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 source $HOME/.aliases
 source $HOME/.private
+
+# env maybe move to .zshenv
+export KUBECONFIG=${HOME}/.kube/config
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# Enables zsh shell completion for kubectl
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
 
 # Setup NVM
 export NVM_DIR="$HOME/.nvm"
@@ -76,6 +85,5 @@ source $ZSH/oh-my-zsh.sh
 
 
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 

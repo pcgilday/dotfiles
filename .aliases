@@ -27,7 +27,8 @@ alias path='echo -e ${PATH//:/\\n}'
 alias gg='g graph-pretty' # graph-pretty defined in .gitconfig
 alias com='git add -A && git commit -av' # add all, commit
 alias comend='git add -A && git commit -av --amend --date=now' # add all, amend commit
-alias rebm='git rebase master'
+alias rebm='git rebase main'
+alias rebmaster='git rebase master'
 
 ## python
 alias ca='conda activate'
@@ -35,6 +36,13 @@ alias ca='conda activate'
 ## node
 # alias dev='nodemon index.js | pino-pretty'
 alias ys='yarn start'
+
+alias d='docker'
+alias dc='docker container'
+alias dcomp='docker-compose'
+
+# k8s
+alias k='kubectl'
 
 ## go
 alias gorun='go run -mod=vendor'

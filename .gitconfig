@@ -67,10 +67,10 @@
   go = checkout -B
   co = checkout
   cp = cherry-pick
-  # diff between master and HEAD
-  dm = diff master..HEAD
-  # show files different between master and HEAD
-  dfm = diff --name-status master..HEAD
+  # diff between main and HEAD
+  dm = diff main..HEAD
+  # show files different between main and HEAD
+  dfm = diff --name-status main..HEAD
   # diff show filenames only
   df = diff --name-status
 
