@@ -46,6 +46,7 @@ call plug#begin('~/.vim/plugged') " Initialise vim-plug
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'pangloss/vim-javascript'
 " Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
