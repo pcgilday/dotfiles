@@ -20,9 +20,6 @@ export KUBECONFIG=${HOME}/.kube/config
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-# Enables zsh shell completion for kubectl
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
-
 
 # Setup NVM
 export NVM_DIR="$HOME/.nvm"
@@ -37,9 +34,9 @@ export NVM_DIR="$HOME/.nvm"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  # docker
+  docker
   # brew
-  # vi-mode
+  vi-mode
   # osx
   # web-search
   # autosuggestions
@@ -48,42 +45,14 @@ ZSH_THEME="robbyrussell"
 # source last
 source $ZSH/oh-my-zsh.sh
 
+# needs to be after oh-my-zsh setup
+# Enables zsh shell completion for kubectl
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
-# export FZF_DEFAULT_COMMAND='ag --hidden --ignore node_modules -g '
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore node_modules -g '
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Setting ag as the default source for fzf
-# export FZF_DEFAULT_COMMAND='ag -g ""'
-
-
-
-# export NVM_DIR="$HOME/.nvm"
-# # This loads nvm
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# This loads nvm bash_completion
-# [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-
-
-
-# >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/patrick.gilday/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/patrick.gilday/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/patrick.gilday/opt/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/patrick.gilday/opt/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
-
-
-
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+export FZF_DEFAULT_COMMAND='ag -g ""'
 

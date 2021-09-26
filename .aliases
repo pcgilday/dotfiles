@@ -53,6 +53,9 @@ alias gocargo='go build && go run'
 alias cb='cargo build'
 alias cr='cargo run'
 
+## docker
+alias d='docker'
+
 # random
 alias learningsblog='nvim ~/repos/patrick/learnings-blog'
 alias blog='cd ~/repos/patrick/writing; nvim .'
@@ -97,19 +100,3 @@ git-refresh() {
 findreplace() {
   find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
 }
-
-# launch medis from anywhere
-medis() {
-  cd ~/repos/medis
-  yarn run electron dist/main/index.js
-}
-
-## Upside functions
-# pull down latest core db from docker and restart local container
-dockcore() {
-  docker kill $(docker ps | grep "upsidetravel-docker.jfrog.io/core-db-schema:latest" | awk '{print $1}')
-  docker images rm $(docker ps | grep "upsidetravel-docker.jfrog.io/core-db-schema:latest" | awk '{print $1}')
-  docker pull   upsidetravel-docker.jfrog.io/core-db-schema:latest
-  docker run -d -p 3306:3306 --name coredb --rm upsidetravel-docker.jfrog.io/core-db-schema:latest
-}
-
