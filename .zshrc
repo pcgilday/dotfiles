@@ -1,5 +1,6 @@
 # Put user bin first
-export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:$PATH
 export PATH=$PATH:$HOME/.local/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 # Add code (vscode) command to path
@@ -7,8 +8,8 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 # why is this needed, should be linked to main brew bin?
 # Add RVM to PATH for scripting. 
 export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$PATH:/usr/local/Cellar/postgresql@12/12.6_2/bin"
-export PATH=/Users/patrick.gilday/.pgo/pgo:$PATH
+# export PATH="$PATH:/usr/local/Cellar/postgresql@12/12.6_2/bin"
+# export PATH=/Users/patrick.gilday/.pgo/pgo:$PATH
 
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -48,6 +49,7 @@ source $ZSH/oh-my-zsh.sh
 # needs to be after oh-my-zsh setup
 # Enables zsh shell completion for kubectl
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+[[ /usr/local/bin/helm ]] && source <(helm completion zsh)
 
 
 
@@ -55,4 +57,20 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore node_modules -g '
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/patrick/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/patrick/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/patrick/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/patrick/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
