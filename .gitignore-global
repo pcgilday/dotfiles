@@ -3,7 +3,7 @@
 *.DS_Store
 # .env
 dump.rdb
-package-lock.json
+# package-lock.json
 node_modules
 .ipynb_checkpoints
 .vscode

@@ -24,6 +24,7 @@
   whitespace = fix
 [push]
   default = simple
+	followTags = true
 [color]
   branch = auto
   diff = auto
