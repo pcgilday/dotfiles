@@ -13,8 +13,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-source $HOME/.aliases
-source $HOME/.private
 
 # env maybe move to .zshenv
 export KUBECONFIG=${HOME}/.kube/config
@@ -27,6 +25,13 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# later versions of osx with brew at
+# export NVM_DIR="$HOME/.nvm"
+# # This loads nvm
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 # OHMYZSH
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -36,8 +41,8 @@ export NVM_DIR="$HOME/.nvm"
 plugins=(
   git
   docker
-  # brew
   vi-mode
+  # brew
   # osx
   # web-search
   # autosuggestions
@@ -52,6 +57,19 @@ source $ZSH/oh-my-zsh.sh
 [[ /usr/local/bin/helm ]] && source <(helm completion zsh)
 
 
+source ~/.private
+source ~/.aliases
+
+
+# export FZF_DEFAULT_COMMAND='ag --hidden --ignore node_modules -g '
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Setting ag as the default source for fzf
+# export FZF_DEFAULT_COMMAND='ag -g ""'
+
+
+
+# This loads nvm bash_completion
+# [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore node_modules -g '
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -61,16 +79,16 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/patrick/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/patrick/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/patrick/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/patrick/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/Users/patrick.gilday/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/patrick.gilday/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/patrick.gilday/opt/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/patrick.gilday/opt/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 

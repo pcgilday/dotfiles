@@ -43,6 +43,7 @@ alias dcomp='docker-compose'
 
 # k8s
 alias k='kubectl'
+alias kcg='k config get-contexts'
 
 ## go
 alias gorun='go run -mod=vendor'
@@ -55,6 +56,7 @@ alias cr='cargo run'
 
 ## docker
 alias d='docker'
+alias tf='terraform'
 
 # random
 alias learningsblog='nvim ~/repos/patrick/learnings-blog'
