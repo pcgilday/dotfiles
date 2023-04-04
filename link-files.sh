@@ -2,8 +2,11 @@
 
 ln -s "$HOME/dotfiles/.aliases" "$HOME/.aliases"
 ln -s "$HOME/dotfiles/.editorconfig" "$HOME/.editorconfig"
-ln -s "$HOME/dotfiles/.gitconfig " "$HOME/.gitconfig "
+ln -s "$HOME/dotfiles/.gitconfig" "$HOME/.gitconfig"
 ln -s "$HOME/dotfiles/.vimrc" "$HOME/.vimrc"
 ln -s "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
+# Put nvim dir in .config - contains init script which uses standard 
+# vim bits like vimrc and .vim
+ln -s "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
 # ln -s "$HOME/dotfiles/.zprofile" "$HOME/.zprofile "
 

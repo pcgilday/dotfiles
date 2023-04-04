@@ -12,7 +12,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # export PATH=/Users/patrick.gilday/.pgo/pgo:$PATH
 
 # Path to oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+#   eval "$(oh-my-posh init zsh)"
+# fi
 
 # env maybe move to .zshenv
 export KUBECONFIG=${HOME}/.kube/config
@@ -25,6 +27,10 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# Volta Setup
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 # later versions of osx with brew at
 # export NVM_DIR="$HOME/.nvm"
 # # This loads nvm
@@ -32,6 +38,7 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+export ZSH="$HOME/.oh-my-zsh"
 # OHMYZSH
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -40,7 +47,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  docker
+  # docker
   vi-mode
   # brew
   # osx
@@ -48,16 +55,23 @@ plugins=(
   # autosuggestions
 )
 ZSH_THEME="robbyrussell"
-# source last
+# # source last
 source $ZSH/oh-my-zsh.sh
 
 # needs to be after oh-my-zsh setup
 # Enables zsh shell completion for kubectl
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
-[[ /usr/local/bin/helm ]] && source <(helm completion zsh)
+if type "$/usr/local/bin/kubectl" > /dev/null; then
+  [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+fi
+if type "$/usr/local/bin/helm" > /dev/null; then
+  [[ /usr/local/bin/helm ]] && source <(helm completion zsh)
+fi
 
 
-source ~/.private
+if [[ -f "~/.private" ]]; then
+  source ~/.private
+fi
+
 source ~/.aliases
 
 

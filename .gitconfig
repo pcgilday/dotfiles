@@ -16,7 +16,7 @@
   required = true
 
 [core]
-  ; editor = /usr/local/bin/vim
+  editor = /opt/homebrew/bin/nvim
   excludesfile = ~/.gitignore-global
 
 [apply]

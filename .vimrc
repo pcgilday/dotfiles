@@ -42,7 +42,7 @@ vnoremap <Leader>c "*y
 
 
 """ SETUP PLUGINS VIA VIMPLUG
-call plug#begin('~/.vim/plugged') " Initialise vim-plug
+call plug#begin('~/dotfiles/.vim/plugged') " Initialise vim-plug
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'rust-lang/rust.vim'
