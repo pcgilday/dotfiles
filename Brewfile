@@ -15,6 +15,7 @@ cask "visual-studio-code"
 cask "notion"
 cask "iterm2"
 brew "jandedobbeleer/oh-my-posh/oh-my-posh"
+cask "rectangle"
 
 # python
 # brew "python@3.9"
