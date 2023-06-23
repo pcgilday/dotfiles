@@ -6,9 +6,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Add code (vscode) command to path
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # why is this needed, should be linked to main brew bin?
-# Add RVM to PATH for scripting. 
-export PATH="$PATH:$HOME/.rvm/bin"
-# export PATH="$PATH:/usr/local/Cellar/postgresql@12/12.6_2/bin"
+export PATH="$PATH:/opt/homebrew/opt/postgresql@12/bin"
 # export PATH=/Users/patrick.gilday/.pgo/pgo:$PATH
 
 # Path to oh-my-zsh installation.
@@ -112,3 +110,12 @@ if [ -f '/Users/patrick.gilday/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/patrick.gilday/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/patrick.gilday/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Ruby
+# TODO: choose rvm or rbenv and setup
+# eval "$(rbenv init - zsh)"
+# export PATH="$PATH:$HOME/.rbenv/shims"
+# Add RVM to PATH for scripting.
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+

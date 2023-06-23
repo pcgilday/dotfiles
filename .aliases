@@ -38,8 +38,7 @@ alias ca='conda activate'
 alias ys='yarn start'
 
 alias d='docker'
-alias dc='docker container'
-alias dcomp='docker-compose'
+alias dc='docker compose'
 
 # k8s
 alias k='kubectl'

@@ -8,14 +8,16 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 
-# essentials
+# osx essentials
+cask "notion"
+cask "iterm2"
+# brew "jandedobbeleer/oh-my-posh/oh-my-posh"
+cask "rectangle"
+
+# dev essentials
 brew "gh"
 brew "hub"
 cask "visual-studio-code"
-cask "notion"
-cask "iterm2"
-brew "jandedobbeleer/oh-my-posh/oh-my-posh"
-cask "rectangle"
 
 # python
 # brew "python@3.9"
@@ -24,9 +26,14 @@ cask "rectangle"
 # brew "go"
 
 # node
-brew "volta"
-# brew "nvm"
-# brew "yarn"
+# brew "volta"
+brew "nvm"
+brew "yarn"
+#
+#
+# ruby
+# brew "rbenv"
+# brew "ruby-build"
 
 # terraform
 # tap "hashicorp/tap"
@@ -49,11 +56,20 @@ brew "nginx"
 cask "inso"
 cask "ngrok"
 
+# Utils
+brew "readline"
+brew "jq"
+brew "libyaml"
+brew "imagemagick"
+brew "gpg"
+
 # caribou local stack bits
 # brew "argo"
 # brew "heroku/brew/heroku"
-# brew "redis", restart_service: true
-# brew "postgresql@12", restart_service: true
+# brew "redis"
+brew "pgcli"
+brew "libpq"
+# brew "postgresql@12"
 # brew "psqlodbc"
 
 # misc / to categorize
@@ -61,16 +77,12 @@ cask "ngrok"
 # brew "automake"
 # brew "coreutils"
 # brew "glib"
-# brew "readline"
 # brew "sqlite"
 # brew "httpie"
 # brew "libheif"
 # brew "tcl-tk"
 # brew "libtool"
-# brew "imagemagick"
-# brew "jq"
 # brew "libksba"
-# brew "libyaml"
 # brew "pkg-config"
 # cask "adoptopenjdk11"
 # cask "chromedriver"
