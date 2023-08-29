@@ -29,6 +29,7 @@ cask "visual-studio-code"
 # brew "volta"
 brew "nvm"
 brew "yarn"
+brew "pnpm"
 #
 #
 # ruby
@@ -54,7 +55,9 @@ brew "zlib"
 # developer tooling
 brew "nginx"
 cask "inso"
+cask "insomnia"
 cask "ngrok"
+cask "doppler"
 
 # Utils
 brew "readline"
