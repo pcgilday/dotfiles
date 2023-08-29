@@ -23,22 +23,12 @@ cask "visual-studio-code"
 # brew "python@3.9"
 
 # go
-# brew "go"
+brew "go"
 
 # node
 # brew "volta"
 brew "nvm"
 brew "yarn"
-brew "pnpm"
-#
-#
-# ruby
-# brew "rbenv"
-# brew "ruby-build"
-
-# terraform
-# tap "hashicorp/tap"
-# brew "hashicorp/tap/terraform"
 
 # vim plugin needs
 brew "neovim"
@@ -46,17 +36,12 @@ brew "fzf"
 brew "the_silver_searcher"
 brew "zlib"
 
-# kubernetes and friends
-# brew "helm"
-# brew "k3d"
-# brew "kind"
-# brew "kubernetes-cli"
-
 # developer tooling
 brew "nginx"
 cask "inso"
 cask "insomnia"
 cask "ngrok"
+brew "pgcli"
 cask "doppler"
 
 # Utils
@@ -65,15 +50,17 @@ brew "jq"
 brew "libyaml"
 brew "imagemagick"
 brew "gpg"
-
-# caribou local stack bits
-# brew "argo"
-# brew "heroku/brew/heroku"
-# brew "redis"
-brew "pgcli"
 brew "libpq"
-# brew "postgresql@12"
-# brew "psqlodbc"
+
+
+# kubernetes and friends
+# brew "helm"
+# brew "k3d"
+# brew "kind"
+# brew "kubernetes-cli"
+# terraform
+# tap "hashicorp/tap"
+# brew "hashicorp/tap/terraform"
 
 # misc / to categorize
 # brew "autoconf"
