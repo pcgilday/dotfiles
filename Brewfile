@@ -43,7 +43,8 @@ cask "inso"
 cask "insomnia"
 cask "ngrok"
 brew "pgcli"
-cask "doppler"
+# required for doppler
+brew "gnupg"
 
 # Utils
 brew "readline"
