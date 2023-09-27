@@ -55,6 +55,9 @@ brew "gpg"
 brew "libpq"
 
 
+# required for refi
+cask "chromedriver"
+
 # kubernetes and friends
 # brew "helm"
 # brew "k3d"
@@ -77,6 +80,5 @@ brew "libpq"
 # brew "libksba"
 # brew "pkg-config"
 # cask "adoptopenjdk11"
-# cask "chromedriver"
 # cask "stack"
 
