@@ -45,6 +45,7 @@ cask "ngrok"
 brew "pgcli"
 # required for doppler
 brew "gnupg"
+brew "direnv"
 
 # Utils
 brew "readline"
