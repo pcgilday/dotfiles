@@ -25,10 +25,9 @@ alias path='echo -e ${PATH//:/\\n}'
 
 ## git
 alias gg='g graph-pretty' # graph-pretty defined in .gitconfig
-alias com='git add -A && git commit -av' # add all, commit
+alias com='git commit -v' # commit with visual
 alias comend='git add -A && git commit -av --amend --date=now' # add all, amend commit
 alias rebm='git rebase main'
-alias rebmaster='git rebase master'
 
 ## python
 alias ca='conda activate'
