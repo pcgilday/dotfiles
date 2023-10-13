@@ -118,4 +118,4 @@ if [ -f '/Users/patrick.gilday/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 # Add RVM to PATH for scripting.
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
+eval "$(direnv hook zsh)"
