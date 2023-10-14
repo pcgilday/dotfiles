@@ -53,7 +53,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'peitalin/vim-jsx-typescript'
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'json', 'xml']}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -77,60 +77,60 @@ colorscheme dracula
 
 """ COC.NVIM SETTINGS
 " Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
 
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+" " Use <c-space> to trigger completion.
+" if has('nvim')
+"   inoremap <silent><expr> <c-space> coc#refresh()
+" else
+"   inoremap <silent><expr> <c-@> coc#refresh()
+" endif
 
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" " Make <CR> auto-select the first completion item and notify coc.nvim to
+" " format on enter, <cr> could be remapped by other vim plugin
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-command! -nargs=0 Prettier :call CocActionAsync('runCommand', 'prettier.formatFile')
+" command! -nargs=0 Prettier :call CocActionAsync('runCommand', 'prettier.formatFile')
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" " Use <c-space> to trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" " Use K to show documentation in preview window.
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocActionAsync('doHover')
+"   endif
+" endfunction
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>gr <Plug>(coc-references)
+" " Symbol renaming.
+" nmap <leader>rn <Plug>(coc-rename)
+" nmap <leader>gr <Plug>(coc-references)
 
-let g:coc_global_extensions = ['coc-tsserver']
+" let g:coc_global_extensions = ['coc-tsserver']
 
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-prettier']
-endif
+" if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+"   let g:coc_global_extensions += ['coc-prettier']
+" endif
 
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
-endif
+" if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+"   let g:coc_global_extensions += ['coc-eslint']
+" endif
 
 
-" NERDTREE SETTINGS
+" " NERDTREE SETTINGS
 nnoremap <Leader>b :NERDTreeToggle<CR> 
 let NERDTreeShowHidden = 1
 
