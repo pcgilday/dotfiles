@@ -16,7 +16,10 @@ export PATH="$PATH:/opt/homebrew/opt/postgresql@12/bin"
 
 # env maybe move to .zshenv
 export KUBECONFIG=${HOME}/.kube/config
+
+# golang configs
 export GOPATH=$HOME/go
+export GOBIN=$HOME/bin
 export PATH=$PATH:$GOPATH/bin
 
 
