@@ -6,10 +6,6 @@
 [hub]
 	protocol = ssh
 
-# override user info for work repos
-[includeIf "gitdir:~/repos/mr/"]
-  path = .gitconfig-mr
-
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
@@ -49,7 +45,6 @@
 [alias]
   # Pretty graph view
   graph-pretty = log --graph --date=relative --all --format=format:'%C(dim yellow)%h%C(reset) %C(cyan)%d%C(reset) %C(green)%s%C(reset) %C(dim yellow)<%an>%C(reset)'
-  log-pretty = log --abbrev-commit
   # log-pretty = log --format='%C(dim yellow)commit: %h %C(cyan)%d%C(reset) %C(reset)%nAuthor: %an <%ae> %nDate: %ad %n%n%>>(4)%s %n%+b'
 
   # pr/pr-clean - https://gist.github.com/gnarf/5406589
@@ -59,7 +54,6 @@
   pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 
   prune-up = remote update origin --prune
-  huh = for-each-ref --count=5 --sort=-committerdate refs/heads/
 
   co = checkout
   cp = cherry-pick
