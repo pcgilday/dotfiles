@@ -61,8 +61,6 @@
   prune-up = remote update origin --prune
   huh = for-each-ref --count=5 --sort=-committerdate refs/heads/
 
-  # Switch to a branch, creating it if necessary
-  go = checkout -B
   co = checkout
   cp = cherry-pick
   # diff between main and HEAD
@@ -71,10 +69,3 @@
   dfm = diff --name-status main..HEAD
   # diff show filenames only
   df = diff --name-status
-
-  # Show verbose output about tags, branches or remotes
-  branches = branch -a
-  remotes = remote -v
-
-  # Interactive rebase with the given number of latest commits
-  reb = "!r() { git rebase -i HEAD~$1; }; r"
