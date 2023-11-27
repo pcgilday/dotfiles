@@ -65,9 +65,9 @@ Plug 'tpope/vim-rails'
 " Plug 'vim-airline/vim-airline'
 " Plug 'reedes/vim-pencil'
 
-" fzf
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
+" https://github.com/junegunn/fzf.vim
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end() " Lock in the plugin list.
 
