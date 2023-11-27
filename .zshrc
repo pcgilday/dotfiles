@@ -69,7 +69,7 @@ if type "$/usr/local/bin/helm" > /dev/null; then
 fi
 
 
-if [[ -f "~/.private" ]]; then
+if [ -f "$HOME/.private" ]; then
   source ~/.private
 fi
 
