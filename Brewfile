@@ -43,6 +43,7 @@ cask "inso"
 cask "insomnia"
 cask "ngrok"
 brew "pgcli"
+brew "cloud-sql-proxy"
 # required for doppler
 brew "gnupg"
 brew "direnv"
