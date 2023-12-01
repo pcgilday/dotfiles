@@ -24,10 +24,26 @@ alias brewup='brew update; brew upgrade; brew cleanup'
 alias path='echo -e ${PATH//:/\\n}'
 
 ## git
-alias gg='g graph-pretty' # graph-pretty defined in .gitconfig
-alias com='git commit -v' # commit with visual
-alias comend='git add -A && git commit -av --amend --date=now' # add all, amend commit
-alias rebm='git rebase main'
+alias g="git"
+alias ga="git add"
+alias gai="git add --patch --interactive"
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gd="git diff"
+alias gl="git pull"
+alias glr="git pull --rebase"
+alias gf="git fetch"
+alias gp="git push"
+alias gs="git status -sb"
+alias gr="git remote"
+alias grp="git remote prune"
+alias gcp="git cherry-pick"
+alias gg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci)%Creset %C(cyan)%an%Creset' --abbrev-commit --date=relative"
+alias ggs="gg --stat"
+alias gsl="git shortlog -sn --no-merges"
+alias gw="git whatchanged"
+alias gchurn="git log --pretty="format:" --name-only | grep -vE '^(vendor/|$)' | sort | uniq -c | sort"
+alias gcherry="git log --left-right --graph --cherry-pick --oneline" # master...feature
 
 ## python
 alias ca='conda activate'

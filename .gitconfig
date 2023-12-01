@@ -43,21 +43,10 @@
   tags = cyan
 
 [alias]
-  # Pretty graph view
-  graph-pretty = log --graph --date=relative --all --format=format:'%C(dim yellow)%h%C(reset) %C(cyan)%d%C(reset) %C(green)%s%C(reset) %C(dim yellow)<%an>%C(reset)'
-  # log-pretty = log --format='%C(dim yellow)commit: %h %C(cyan)%d%C(reset) %C(reset)%nAuthor: %an <%ae> %nDate: %ad %n%n%>>(4)%s %n%+b'
-
   # pr/pr-clean - https://gist.github.com/gnarf/5406589
   pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
   pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 
   prune-up = remote update origin --prune
-
-  co = checkout
-  cp = cherry-pick
-  # diff between main and HEAD
-  dm = diff main..HEAD
-  # show files different between main and HEAD
-  dfm = diff --name-status main..HEAD
   # diff show filenames only
   df = diff --name-status
