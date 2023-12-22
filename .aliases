@@ -77,7 +77,7 @@ alias blog='cd ~/repos/patrick/writing; nvim .'
 alias notes='nvim ~/Documents/notes'
 
 # grep helpers - although mostly use ag these days
-alias gr="grep -Ir --color --exclude-dir 'node_modules' --exclude-dir '.git'"
+alias gr="grep -Irn --color --exclude-dir 'node_modules' --exclude-dir '.git'"
 alias gri='gr -i'
 
 alias pull="g prr"
