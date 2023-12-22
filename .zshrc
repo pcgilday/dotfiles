@@ -92,6 +92,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
+export CONDA_AUTO_ACTIVATE_BASE=false
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/patrick.gilday/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
