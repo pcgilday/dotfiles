@@ -46,15 +46,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  # git
-  # docker
-  vi-mode
-  # brew
-  # osx
-  # web-search
-  # autosuggestions
-)
+plugins=(vi-mode)
 ZSH_THEME="robbyrussell"
 # # source last
 source $ZSH/oh-my-zsh.sh
