@@ -26,6 +26,8 @@ alias path='echo -e ${PATH//:/\\n}'
 ## git
 alias g="git"
 alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gb="git branch"
 alias ga="git add"
 alias gai="git add --patch --interactive"
 alias gc='git commit -v'
