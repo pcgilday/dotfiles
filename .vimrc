@@ -83,6 +83,14 @@ if executable('typescript-language-server')
     \ })
 endif
 
+if executable('solargraph')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'solargraph',
+    \ 'cmd': {server_info->['solargraph', 'stdio']},
+    \ 'whitelist': ['ruby'],
+    \ })
+endif
+
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
