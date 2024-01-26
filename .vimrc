@@ -34,6 +34,9 @@ nnoremap <silent> <Leader>l :wincmd l<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
+nnoremap <Leader>[ <C-o>
+nnoremap <Leader>] <C-i>
+
 " clear search highlights
 nnoremap <Leader>c :nohl<cr>
 
