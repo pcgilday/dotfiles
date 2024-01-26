@@ -101,13 +101,3 @@ nmap <Leader>a :Ag<CR>
 nmap <Leader>/ :Commentary<CR>
 vmap <Leader>/ :Commentary<CR>
 nmap <Leader>/ :Commentary<CR>
-
-" using dracula theme colors for
-hi tsxTagName ctermfg=212
-hi tsxCloseTagName ctermfg=212
-hi tsxComponentName ctermfg=159 cterm=italic
-hi tsxCloseComponentName ctermfg=159 cterm=italic
-hi tsxAttrib ctermfg=120 cterm=italic
-
-hi tsxAttributeBraces ctermfg=212
-hi tsxEqual ctermfg=212
