@@ -1,21 +1,11 @@
 #!/bin/bash
 
 # Reload the shell (i.e. invoke as a login shell)
-alias v='nvim'
-
-alias zshconfig="v ~/.zshrc"
-alias ohmyzsh="v ~/.oh-my-zsh"
 alias rs="source ~/.zshrc"
 
-alias vimrc='nvim ~/.vimrc'
+alias v='nvim'
+alias vimrc='vim ~/.vimrc'
 
-# List all files colorized in long format
-alias l="ls -lF ${colorflag}"
-# alias la='ls -a'
-# List all files colorized in long format, including dot files
-alias la="ls -laF ${colorflag}"
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
 # Get macOS Software Updates, and update Homebrew and it's packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
 alias brewup='brew update; brew upgrade; brew cleanup'
