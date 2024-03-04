@@ -48,7 +48,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(vi-mode)
 ZSH_THEME="robbyrussell"
-# # source last
 source $ZSH/oh-my-zsh.sh
 
 # needs to be after oh-my-zsh setup
