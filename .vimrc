@@ -1,12 +1,12 @@
-set nocompatible 
+set nocompatible
 set splitbelow
 set splitright
 set ttimeout
 set ttimeoutlen=1
-set ttyfast 
-set mouse=a 
-set backspace=indent,eol,start 
-set expandtab 
+set ttyfast
+set mouse=a
+set backspace=indent,eol,start
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set showmatch
@@ -65,7 +65,7 @@ Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-rhubarb' 
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rails'
