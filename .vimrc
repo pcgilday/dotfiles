@@ -15,11 +15,10 @@ set relativenumber
 
 vnoremap <Leader>c "*y
 
-" set leader to space 
 nnoremap ; :
+" set leader to space
 nnoremap <SPACE> <Nop>
-let mapleader=" "
-
+let mapleader="\<space>"
 
 " status line
 set laststatus=2
