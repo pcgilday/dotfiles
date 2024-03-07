@@ -152,3 +152,6 @@ nmap <Leader>a :Ag<CR>
 nmap <Leader>/ :Commentary<CR>
 vmap <Leader>/ :Commentary<CR>
 nmap <Leader>/ :Commentary<CR>
+
+" Fugitive mappings
+nmap <Leader>gl :Gclog -n 100<CR>
