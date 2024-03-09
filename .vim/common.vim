@@ -35,3 +35,7 @@ nnoremap <Leader>] <C-i>
 
 " Copy to global clipboard
 vnoremap <Leader>c "*y
+
+nmap <leader>wm :e ~/working-memory.md<cr>
+" change selected from camelCase to snake_case
+vnoremap <leader>cs :s/[a-z]\@<=[A-Z]/_\l\0/g
