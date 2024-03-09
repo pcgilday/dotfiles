@@ -22,11 +22,7 @@ let mapleader="\<space>"
 
 " status line
 set laststatus=2
-set statusline=%<%f
-set statusline+=\ %h%m%r
-set statusline+=%=
-set statusline+=%-14.(%l,%c%V%)
-set statusline+=\ %P
+set ruler
 
 " cursor shape for insert mode
 let &t_SI = "\e[6 q"
