@@ -68,6 +68,7 @@ Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'github/copilot.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'adelarsq/vim-matchit'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
