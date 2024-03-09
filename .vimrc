@@ -39,7 +39,6 @@ nnoremap <Leader>c :nohl<cr>
 map j gj
 map k gk
 
-" TODO: switch to ctrl-w hjkl so it works with virtual terminal
 nnoremap <silent> <Leader>k :wincmd k<cr>
 nnoremap <silent> <Leader>j :wincmd j<cr>
 nnoremap <silent> <Leader>h :wincmd h<cr>
@@ -49,8 +48,9 @@ nnoremap <Leader>[ <C-o>
 nnoremap <Leader>] <C-i>
 
 
-""" SETUP PLUGINS VIA VIMPLUG
-call plug#begin('~/dotfiles/.vim/plugged') " Initialise vim-plug
+" Section: Plugins
+
+call plug#begin('~/dotfiles/.vim/plugged')
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'rust-lang/rust.vim'
@@ -73,7 +73,7 @@ Plug 'adelarsq/vim-matchit'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-call plug#end() " Lock in the plugin list.
+call plug#end()
 
 " Section: Post plugin settings
 
@@ -97,9 +97,8 @@ nmap <Leader>/ :Commentary<CR>
 " Section: Fugitive
 nmap <Leader>gl :Gclog -n 100<CR>
 
-"""
-""" VIM-LSP SETTINGS
-"""
+" Section: LSP
+
 if executable('typescript-language-server')
   au User lsp_setup call lsp#register_server({
     \ 'name': 'typescript-language-server',
@@ -130,12 +129,6 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> [g <plug>(lsp-previous-diagnostic)
     nmap <buffer> ]g <plug>(lsp-next-diagnostic)
     nmap <buffer> K <plug>(lsp-hover)
-    " from docs, but don't want to enable yet
-    " inoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    " inoremap <buffer> <expr><c-d> lsp#scroll(-4)
-
-    " let g:lsp_format_sync_timeout = 1000
-    " autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 endfunction
 
 augroup lsp_install
