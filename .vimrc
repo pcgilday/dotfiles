@@ -6,6 +6,8 @@ set ttimeoutlen=1
 set ttyfast
 set mouse=a
 set backspace=indent,eol,start
+set wildmenu
+set wildoptions=pum,tagfile
 set expandtab
 set tabstop=2
 set shiftwidth=2
