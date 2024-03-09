@@ -92,7 +92,6 @@ nmap <Leader>b :Buffers<CR>
 " Section: Commentary
 nmap <Leader>/ :Commentary<CR>
 vmap <Leader>/ :Commentary<CR>
-nmap <Leader>/ :Commentary<CR>
 
 " Section: Fugitive
 nmap <Leader>gl :Gclog -n 100<CR>
