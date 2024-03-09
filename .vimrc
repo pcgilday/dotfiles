@@ -1,54 +1,20 @@
+source ~/.vim/common.vim
+
 set nocompatible
-set splitbelow
-set splitright
-set ttimeout
-set ttimeoutlen=1
-set ttyfast
 set mouse=a
+set autoread
 set backspace=indent,eol,start
 set wildmenu
 set wildoptions=pum,tagfile
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set showmatch
-set number
-set relativenumber
-
-vnoremap <Leader>c "*y
-
-nnoremap ; :
-" set leader to space
-nnoremap <SPACE> <Nop>
-let mapleader="\<space>"
-
-" status line
 set laststatus=2
 set ruler
+set ttimeout
+set ttimeoutlen=50
+set ttyfast
 
 " cursor shape for insert mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
-
-" search settings
-set ignorecase
-set smartcase " ignore case if search pattern is all lowercase, case-sensitive otherwise
-set incsearch
-set hlsearch
-nnoremap <Leader>c :nohl<cr>
-
-" Navigation
-map j gj
-map k gk
-
-nnoremap <silent> <Leader>k :wincmd k<cr>
-nnoremap <silent> <Leader>j :wincmd j<cr>
-nnoremap <silent> <Leader>h :wincmd h<cr>
-nnoremap <silent> <Leader>l :wincmd l<cr>
-
-nnoremap <Leader>[ <C-o>
-nnoremap <Leader>] <C-i>
-
 
 " Section: Plugins
 
