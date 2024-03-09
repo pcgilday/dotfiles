@@ -129,13 +129,6 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-
 " nerdtree settings
 nnoremap <Leader>b :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
