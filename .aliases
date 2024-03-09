@@ -3,7 +3,8 @@
 # Reload the shell (i.e. invoke as a login shell)
 alias rs="source ~/.zshrc"
 
-alias v='nvim'
+alias v='vim'
+alias n='nvim'
 alias vimrc='vim ~/.vimrc'
 
 # Get macOS Software Updates, and update Homebrew and it's packages
