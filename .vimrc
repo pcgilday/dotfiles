@@ -96,9 +96,6 @@ nmap <Leader>/ :Commentary<CR>
 " Section: Fugitive
 nmap <Leader>gl :Gclog -n 100<CR>
 
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-
 """
 """ VIM-LSP SETTINGS
 """
