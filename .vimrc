@@ -75,9 +75,26 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end() " Lock in the plugin list.
 
-" Post plugin settings
+" Section: Post plugin settings
 
 colorscheme dracula
+
+" Section: Nerdtree
+nnoremap <Leader>b :NERDTreeToggle<CR>
+let NERDTreeShowHidden = 1
+
+" Section: fzf
+nmap <Leader>f :Files<CR>
+nmap <Leader>r :Tags<CR>
+nmap <Leader>a :Ag<CR>
+
+" Section: Commentary
+nmap <Leader>/ :Commentary<CR>
+vmap <Leader>/ :Commentary<CR>
+nmap <Leader>/ :Commentary<CR>
+
+" Section: Fugitive
+nmap <Leader>gl :Gclog -n 100<CR>
 
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
@@ -128,20 +145,3 @@ augroup lsp_install
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
-
-" nerdtree settings
-nnoremap <Leader>b :NERDTreeToggle<CR>
-let NERDTreeShowHidden = 1
-
-" fzf settings
-nmap <Leader>f :Files<CR>
-nmap <Leader>r :Tags<CR>
-nmap <Leader>a :Ag<CR>
-
-" Commentary settings
-nmap <Leader>/ :Commentary<CR>
-vmap <Leader>/ :Commentary<CR>
-nmap <Leader>/ :Commentary<CR>
-
-" Fugitive mappings
-nmap <Leader>gl :Gclog -n 100<CR>
