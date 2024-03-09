@@ -80,13 +80,14 @@ call plug#end() " Lock in the plugin list.
 colorscheme dracula
 
 " Section: Nerdtree
-nnoremap <Leader>b :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
 
 " Section: fzf
 nmap <Leader>f :Files<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>a :Ag<CR>
+nmap <Leader>b :Buffers<CR>
 
 " Section: Commentary
 nmap <Leader>/ :Commentary<CR>
