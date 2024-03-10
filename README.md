@@ -5,7 +5,7 @@ A constantly evolving set of configurations.
 
 ## Mac OS Setup
 
-This relies on [homebrew](https://brew.sh/) and [oh-my-zsh](https://github.com/junegunn/vim-plug), which should be installed first.
+This relies on [homebrew](https://brew.sh/) and [oh-my-zsh](https://ohmyz.sh/#install), which should be installed first.
 
 - clone this repo into home directory
 - cd ~/dotfiles
@@ -23,6 +23,8 @@ I am currently experimenting with neovim after years of using vim.
 - common.vim is sourced by both vim and neovim
 - .vimrc is vim specific and uses [vim-plug](https://github.com/junegunn/vim-plug)
 - nvim/init.lua sets up lazy.nvim and nvim plugins
+
+This setup uses fzf and ag, so those should be installed (included in Brewfile if on MacOS)
 
 ## zsh
 
