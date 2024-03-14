@@ -28,8 +28,10 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>gl", ":Gclog -n 100<CR>", { noremap = true })
     end,
   },
+  'tpope/vim-rhubarb',
 
   -- language specific plugins
+  'vim-ruby/vim-ruby',
   'tpope/vim-rails',
 
   -- colorscheme
