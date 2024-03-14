@@ -24,6 +24,7 @@ alias gai="git add --patch --interactive"
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gd="git diff"
+alias gdc="git diff --cached"
 alias gl="git pull"
 alias glr="git pull --rebase"
 alias gf="git fetch"
@@ -108,3 +109,4 @@ git-refresh() {
 findreplace() {
   find $3 -type f -exec sed -i '' -e "s/${1}/${2}/g" '{}' \;
 }
+
