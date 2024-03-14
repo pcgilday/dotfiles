@@ -9,5 +9,3 @@ ln -s "$HOME/dotfiles/.vim" "$HOME/.vim"
 ln -s "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
 # Put nvim dir in .config (linux/mac)
 ln -s "$HOME/dotfiles/nvim" "$HOME/.config/nvim"
-# ln -s "$HOME/dotfiles/.zprofile" "$HOME/.zprofile "
-
