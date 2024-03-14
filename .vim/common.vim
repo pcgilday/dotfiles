@@ -3,6 +3,7 @@ nnoremap ; :
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
 
+set termguicolors
 set number
 set relativenumber
 set splitbelow
