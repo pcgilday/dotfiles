@@ -37,6 +37,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'github/copilot.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'adelarsq/vim-matchit'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -46,6 +47,10 @@ call plug#end()
 " Section: Post plugin settings
 
 colorscheme dracula
+
+"Section: editorconfig
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Section: Nerdtree
 nnoremap <Leader>n :NERDTreeToggle<CR>
