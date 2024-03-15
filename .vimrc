@@ -11,6 +11,7 @@ set ruler
 set ttimeout
 set ttimeoutlen=50
 set ttyfast
+set showcmd
 
 " cursor shape for insert mode
 let &t_SI = "\e[6 q"
