@@ -12,6 +12,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set showmatch
+set nowrap
 
 " Section: Search settings
 
