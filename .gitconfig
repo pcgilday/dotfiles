@@ -12,7 +12,7 @@
   required = true
 
 [core]
-  editor = /opt/homebrew/bin/nvim
+  editor = /usr/bin/vim
   excludesfile = ~/.gitignore-global
 
 [apply]
