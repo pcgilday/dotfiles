@@ -69,6 +69,8 @@ vmap <Leader>/ :Commentary<CR>
 
 " Section: Fugitive
 nmap <Leader>gl :Gclog -n 100<CR>
+nmap <Leader>gc :G commit -v<CR>
+nmap <Leader>gb :G blame<CR>
 
 " Section: LSP
 
