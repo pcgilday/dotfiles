@@ -65,11 +65,6 @@ alias cr='cargo run'
 alias d='docker'
 alias tf='terraform'
 
-# random
-alias learningsblog='nvim ~/repos/patrick/learnings-blog'
-alias blog='cd ~/repos/patrick/writing; nvim .'
-alias notes='nvim ~/Documents/notes'
-
 # grep helpers - although mostly use ag these days
 alias gr="grep -Irn --color --exclude-dir 'node_modules' --exclude-dir '.git'"
 alias gri='gr -i'
