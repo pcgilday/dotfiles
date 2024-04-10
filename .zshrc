@@ -66,22 +66,8 @@ fi
 
 source ~/.aliases
 
-
-# export FZF_DEFAULT_COMMAND='ag --hidden --ignore node_modules -g '
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# Setting ag as the default source for fzf
-# export FZF_DEFAULT_COMMAND='ag -g ""'
-
-
-
-# This loads nvm bash_completion
-# [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore node_modules -g '
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# Setting ag as the default source for fzf
-export FZF_DEFAULT_COMMAND='ag -g ""'
-
+# Section: FZF
+eval "$(fzf --zsh)"
 
 export CONDA_AUTO_ACTIVATE_BASE=false
 # >>> conda initialize >>>
