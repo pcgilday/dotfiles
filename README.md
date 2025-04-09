@@ -9,8 +9,8 @@ This relies on [homebrew](https://brew.sh/) and [oh-my-zsh](https://ohmyz.sh/#in
 
 - clone this repo into home directory
 - cd ~/dotfiles
-- `brew bundle`
 - `./link-files.sh` - will symlink files into home directory (fails if files already exist)
+- `brew bundle`
 
 ## Linux Setup
 
