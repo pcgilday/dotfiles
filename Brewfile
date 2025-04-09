@@ -4,7 +4,6 @@ tap "heroku/brew"
 
 
 # osx essentials
-cask "notion"
 cask "iterm2"
 # brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 cask "rectangle"
