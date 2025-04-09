@@ -18,7 +18,7 @@ Much of this should work on linux, but my current daily driver is a mac. When I 
 
 ## Vim / Neovim 
 
-I am currently experimenting with neovim after years of using vim. 
+I tried neovim. I decided I prefer vim, but some settings reflect that experiment. The nvim settings aren't really maintained currently. 
 
 - common.vim is sourced by both vim and neovim
 - .vimrc is vim specific and uses [vim-plug](https://github.com/junegunn/vim-plug)
