@@ -12,7 +12,7 @@ cask "rectangle"
 brew "gh"
 brew "hub"
 cask "visual-studio-code"
-cask "datagrip"
+# cask "datagrip"
 
 # python
 # brew "python@3.9"
