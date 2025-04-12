@@ -9,47 +9,42 @@ brew "tmux"
 # brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 cask "rectangle"
 
-# dev essentials
-brew "gh"
-brew "hub"
-cask "visual-studio-code"
-# cask "datagrip"
-
-# python
+# dev tooling
+# languages
+brew "go"
+brew "nvm"
+# brew "yarn" (use node to install yarn)
+brew "rbenv"
 # brew "python@3.9"
 
-# go
-brew "go"
-
-# node
-# brew "volta"
-brew "nvm"
-brew "yarn"
-
 # vim plugin needs
-brew "neovim"
 brew "fzf"
 brew "the_silver_searcher"
 brew "zlib"
 
-# developer tooling
-brew "nginx"
-cask "inso"
-cask "insomnia"
-cask "ngrok"
-brew "pgcli"
-brew "cloud-sql-proxy"
-# required for doppler
-brew "gnupg"
-brew "direnv"
-
-# Utils
+# cli utils
 brew "readline"
 brew "jq"
 brew "libyaml"
 brew "imagemagick"
 brew "gpg"
 brew "libpq"
+
+# developer tooling
+brew "gh"
+brew "hub"
+cask "visual-studio-code"
+brew "nginx"
+cask "ngrok"
+brew "pgcli"
+brew "cloud-sql-proxy"
+# cask "inso"
+# cask "insomnia"
+# cask "datagrip"
+# brew "neovim"
+# required for doppler
+brew "gnupg"
+brew "direnv"
 
 
 # required for refi
