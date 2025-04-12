@@ -5,6 +5,7 @@ tap "heroku/brew"
 
 # osx essentials
 cask "iterm2"
+brew "tmux"
 # brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 cask "rectangle"
 
