@@ -94,9 +94,9 @@ if [ -f '/Users/patrick.gilday/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 
 # Ruby
 # TODO: choose rvm or rbenv and setup
-# eval "$(rbenv init - zsh)"
-# export PATH="$PATH:$HOME/.rbenv/shims"
+eval "$(rbenv init - zsh)"
+export PATH="$PATH:$HOME/.rbenv/shims"
 # Add RVM to PATH for scripting.
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# export PATH="$PATH:$HOME/.rvm/bin"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 eval "$(direnv hook zsh)"
