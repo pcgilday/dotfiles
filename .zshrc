@@ -7,12 +7,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # why is this needed, should be linked to main brew bin?
 export PATH="$PATH:/opt/homebrew/opt/postgresql@12/bin"
-# export PATH=/Users/patrick.gilday/.pgo/pgo:$PATH
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# Path to oh-my-zsh installation.
-# if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-#   eval "$(oh-my-posh init zsh)"
-# fi
+fpath+=($HOME/.zsh/pure)
+autoload -U promptinit; promptinit
+prompt pure
 
 # env maybe move to .zshenv
 export KUBECONFIG=${HOME}/.kube/config
@@ -47,7 +46,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(vi-mode)
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 source $ZSH/oh-my-zsh.sh
 
 # needs to be after oh-my-zsh setup
@@ -100,3 +99,6 @@ export PATH="$PATH:$HOME/.rbenv/shims"
 # export PATH="$PATH:$HOME/.rvm/bin"
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 eval "$(direnv hook zsh)"
+
+# Added by Antigravity
+export PATH="/Users/patrick.gilday/.antigravity/antigravity/bin:$PATH"

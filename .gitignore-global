@@ -8,3 +8,7 @@ node_modules
 .yalc
 yalc.lock
 .vscode
+.pcg
+.cursorfile
+tags
+.tool-versions

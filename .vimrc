@@ -17,6 +17,9 @@ set showcmd
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+" " disables Background Color Erase
+let &t_ut=''
+
 " Section: Plugins
 
 call plug#begin('~/dotfiles/.vim/plugged')
@@ -35,7 +38,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-Plug 'github/copilot.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'adelarsq/vim-matchit'
 Plug 'editorconfig/editorconfig-vim'

@@ -49,6 +49,7 @@ brew "direnv"
 
 # required for refi
 cask "chromedriver"
+brew "doppler"
 
 # kubernetes and friends
 # brew "helm"

@@ -6,6 +6,9 @@ alias rs="source ~/.zshrc"
 alias v='vim'
 alias n='nvim'
 alias vimrc='vim ~/.vimrc'
+alias cs='claude-swarm'
+alias cl='clear'
+alias toolbox='cd ~/repos/toolbox'
 
 # Get macOS Software Updates, and update Homebrew and it's packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
@@ -13,6 +16,18 @@ alias brewup='brew update; brew upgrade; brew cleanup'
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+alias be='bundle exec'
+
+
+## vim
+alias ctags="/opt/homebrew/bin/ctags"
+# Regenerate ctags for Ruby project
+retag() {
+  /opt/homebrew/bin/ctags -R --languages=ruby --exclude=.git --exclude=log --exclude=tmp --exclude=node_modules .
+  echo "Tags regenerated!"
+}
+
 
 ## git
 alias g="git"
@@ -37,6 +52,7 @@ alias gsl="git shortlog -sn --no-merges"
 alias gw="git whatchanged"
 alias gchurn="git log --pretty="format:" --name-only | grep -vE '^(vendor/|$)' | sort | uniq -c | sort"
 alias gcherry="git log --left-right --graph --cherry-pick --oneline" # master...feature
+
 
 ## python
 alias ca='conda activate'
@@ -85,10 +101,13 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 alias dotfiles='cd ~/dotfiles'
 
 
+
+
+
 ## functions below, but keeping in aliases is simpler org wise
 
 git-prune() {
-  git checkout master; git pull;
+  git checkout develop; git pull;
   git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
   git pr-clean
 }
