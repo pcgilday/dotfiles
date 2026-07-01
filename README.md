@@ -5,12 +5,20 @@ A constantly evolving set of configurations.
 
 ## Mac OS Setup
 
-This relies on [homebrew](https://brew.sh/) and [oh-my-zsh](https://ohmyz.sh/#install), which should be installed first.
+- clone this repo into the home directory
+- `cd ~/dotfiles`
+- `./setup.sh`
 
-- clone this repo into home directory
-- cd ~/dotfiles
-- `./link-files.sh` - will symlink files into home directory (fails if files already exist)
-- `brew bundle`
+`setup.sh` is idempotent (safe to re-run) and handles everything:
+
+- installs [homebrew](https://brew.sh/) and [oh-my-zsh](https://ohmyz.sh/#install) if missing
+- symlinks the dotfiles into `$HOME` (via `link-files.sh`)
+- `brew bundle` to install packages from the Brewfile
+- installs the [Pure](https://github.com/sindresorhus/pure) zsh prompt (loaded from `~/.zsh/pure`)
+- installs [tpm](https://github.com/tmux-plugins/tpm) for tmux plugins
+- installs vim plugins (`:PlugInstall`)
+
+`link-files.sh` can also be run on its own; it refreshes existing symlinks and skips real files without clobbering them.
 
 ## Linux Setup
 
