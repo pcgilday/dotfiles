@@ -4,7 +4,6 @@
 alias rs="source ~/.zshrc"
 
 alias v='vim'
-alias n='nvim'
 alias vimrc='vim ~/.vimrc'
 alias cs='claude-swarm'
 alias cl='clear'

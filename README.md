@@ -16,13 +16,10 @@ This relies on [homebrew](https://brew.sh/) and [oh-my-zsh](https://ohmyz.sh/#in
 
 Much of this should work on linux, but my current daily driver is a mac. When I do setup linux a linux machine it I generally clone the repo and manually link the bits I need. Sometimes I fix settings to be cross platform and push those up.
 
-## Vim / Neovim 
+## Vim
 
-I tried neovim. I decided I prefer vim, but some settings reflect that experiment. The nvim settings aren't really maintained currently. 
-
-- common.vim is sourced by both vim and neovim
-- .vimrc is vim specific and uses [vim-plug](https://github.com/junegunn/vim-plug)
-- nvim/init.lua sets up lazy.nvim and nvim plugins
+- .vimrc uses [vim-plug](https://github.com/junegunn/vim-plug) for plugin management
+- run `:PlugInstall` (setup.sh does this automatically)
 
 This setup uses fzf and ag, so those should be installed (included in Brewfile if on MacOS)
 
