@@ -15,7 +15,6 @@ brew "go"
 brew "asdf"
 brew "nvm"
 # brew "yarn" (use node to install yarn)
-brew "rbenv"
 # brew "python@3.9"
 
 # vim plugin needs

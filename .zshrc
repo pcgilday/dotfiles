@@ -27,10 +27,6 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# Volta Setup
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
 # later versions of osx with brew at
 # export NVM_DIR="$HOME/.nvm"
 # # This loads nvm
@@ -91,13 +87,6 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
-# Ruby
-# TODO: choose rvm or rbenv and setup
-command -v rbenv > /dev/null && eval "$(rbenv init - zsh)"
-export PATH="$PATH:$HOME/.rbenv/shims"
-# Add RVM to PATH for scripting.
-# export PATH="$PATH:$HOME/.rvm/bin"
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 command -v direnv > /dev/null && eval "$(direnv hook zsh)"
 
 # Added by Antigravity
