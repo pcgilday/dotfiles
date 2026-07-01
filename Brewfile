@@ -12,6 +12,7 @@ cask "rectangle"
 # dev tooling
 # languages
 brew "go"
+brew "asdf"
 brew "nvm"
 # brew "yarn" (use node to install yarn)
 brew "rbenv"

@@ -7,7 +7,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # why is this needed, should be linked to main brew bin?
 export PATH="$PATH:/opt/homebrew/opt/postgresql@12/bin"
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ] && . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
@@ -66,19 +66,19 @@ fi
 source ~/.aliases
 
 # Section: FZF
-eval "$(fzf --zsh)"
+command -v fzf > /dev/null && eval "$(fzf --zsh)"
 
 export CONDA_AUTO_ACTIVATE_BASE=false
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/patrick.gilday/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/patrick.gilday/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/patrick.gilday/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/patrick.gilday/miniconda3/bin:$PATH"
+        export PATH="$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -86,19 +86,19 @@ unset __conda_setup
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/patrick.gilday/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/patrick.gilday/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/patrick.gilday/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/patrick.gilday/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 # Ruby
 # TODO: choose rvm or rbenv and setup
-eval "$(rbenv init - zsh)"
+command -v rbenv > /dev/null && eval "$(rbenv init - zsh)"
 export PATH="$PATH:$HOME/.rbenv/shims"
 # Add RVM to PATH for scripting.
 # export PATH="$PATH:$HOME/.rvm/bin"
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-eval "$(direnv hook zsh)"
+command -v direnv > /dev/null && eval "$(direnv hook zsh)"
 
 # Added by Antigravity
-export PATH="/Users/patrick.gilday/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
