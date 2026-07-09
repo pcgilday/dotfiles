@@ -1,13 +1,38 @@
 # dotfiles
 
-A constantly evolving set of configurations. 
+A constantly evolving set of configurations. Cross-platform (macOS / Linux)
+and cross-shell (zsh / bash).
 
+## Layout
 
-## Mac OS Setup
+Config is split along two axes — **shell** and **platform** — so the right
+pieces load wherever the repo is cloned. Each shell's rc file is a thin loader
+that resolves its own directory and sources fragments in order:
 
-- clone this repo into the home directory
-- `cd ~/dotfiles`
-- `./setup.sh`
+```
+shell/
+  common.sh      # POSIX-sh: sourced by BOTH zsh and bash, on ALL platforms
+  darwin.sh      # POSIX-sh: both shells, macOS only (homebrew, asdf, nvm, mac aliases)
+  linux.sh       # POSIX-sh: both shells, Linux only
+zsh/
+  common.zsh     # zsh only, all platforms (fzf, rs)
+  darwin.zsh     # zsh only, macOS (pure prompt, oh-my-zsh, conda, completions)
+bash/
+  common.bash    # bash only, all platforms (fzf, rs)
+git/common.gitconfig     tmux/common.tmux.conf     vim/{vimrc,common.vim,autoload/}
+.zshrc  .bashrc          # loaders (source the fragments above)
+.editorconfig  .gitignore-global
+link-files.sh  setup.sh  Brewfile
+```
+
+Load order per shell: `shell/common.sh` → `shell/<platform>.sh` →
+`<shell>/common.<ext>` → `<shell>/<platform>.<ext>`. Every source is
+existence-guarded, so absent fragments are harmless.
+
+## macOS setup
+
+- clone this repo into the home directory (e.g. `~/dotfiles`)
+- `cd ~/dotfiles && ./setup.sh`
 
 `setup.sh` is idempotent (safe to re-run) and handles everything:
 
@@ -18,32 +43,38 @@ A constantly evolving set of configurations.
 - installs [tpm](https://github.com/tmux-plugins/tpm) for tmux plugins
 - installs vim plugins (`:PlugInstall`)
 
-`link-files.sh` can also be run on its own; it refreshes existing symlinks and skips real files without clobbering them.
+## Linux / cross-platform setup
 
-## Linux Setup
+The repo works on Linux under either shell. `setup.sh` is macOS-specific
+(Homebrew), so on Linux install tools with your package manager and run just
+the linker:
 
-Much of this should work on linux, but my current daily driver is a mac. When I do setup linux a linux machine it I generally clone the repo and manually link the bits I need. Sometimes I fix settings to be cross platform and push those up.
+```sh
+git clone https://github.com/pcgilday/dotfiles ~/dotfiles
+cd ~/dotfiles && ./link-files.sh
+```
+
+`link-files.sh` refreshes existing symlinks and skips real files without
+clobbering them. On Linux the shell loaders skip all the macOS-only fragments
+(homebrew, pure, oh-my-zsh, conda), so nothing errors out. Add Linux-specific
+config to `shell/linux.sh` (either shell) or `bash/common.bash` / `zsh/common.zsh`.
 
 ## Vim
 
-- .vimrc uses [vim-plug](https://github.com/junegunn/vim-plug) for plugin management
+- `vim/vimrc` uses [vim-plug](https://github.com/junegunn/vim-plug) for plugin management
 - run `:PlugInstall` (setup.sh does this automatically)
-
-This setup uses fzf and ag, so those should be installed (included in Brewfile if on MacOS)
+- uses fzf and ag, so those should be installed
 
 ## zsh
 
-- using oh-my-zsh because it's a pretty good set of defaults and I'm lazy
-- .zshrc sets path, loads plugins, and sources .aliases and .private
+- macOS uses oh-my-zsh + the Pure prompt (see `zsh/darwin.zsh`)
+- `.zshrc` is a loader; portable zsh config lives in `zsh/common.zsh`
 
-## tmux
+## bash
 
-- using [tpm](https://github.com/tmux-plugins/tpm) for plugin management
-
+- `.bashrc` is a loader mirroring `.zshrc`; portable bash config lives in `bash/common.bash`
 
 ## private
 
-- sourced from zshrc when exists in ~/.private
-- not in version control so it can contains api keys and other private information
-
-
+- `~/.private` is sourced from `shell/common.sh` when it exists
+- not in version control, so it can contain API keys and other private information
