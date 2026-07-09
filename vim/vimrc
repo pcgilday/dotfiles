@@ -22,7 +22,7 @@ let &t_ut=''
 
 " Section: Plugins
 
-call plug#begin('~/dotfiles/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'rust-lang/rust.vim'

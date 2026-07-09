@@ -18,11 +18,11 @@ link() {
   fi
 }
 
-link ".aliases"          "$HOME/.aliases"
-link ".editorconfig"     "$HOME/.editorconfig"
-link ".gitconfig"        "$HOME/.gitconfig"
-link ".gitignore-global" "$HOME/.gitignore-global"
-link ".vimrc"            "$HOME/.vimrc"
-link ".vim"              "$HOME/.vim"
-link ".zshrc"            "$HOME/.zshrc"
-link ".tmux.conf"        "$HOME/.tmux.conf"
+link ".editorconfig"        "$HOME/.editorconfig"
+link ".gitignore-global"    "$HOME/.gitignore-global"
+link ".zshrc"               "$HOME/.zshrc"
+link ".bashrc"              "$HOME/.bashrc"
+link "git/common.gitconfig" "$HOME/.gitconfig"
+link "tmux/common.tmux.conf" "$HOME/.tmux.conf"
+link "vim/vimrc"            "$HOME/.vimrc"
+link "vim"                  "$HOME/.vim"
