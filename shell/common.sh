@@ -33,6 +33,7 @@ alias cs='claude-swarm'
 alias cl='clear'
 alias toolbox='cd ~/repos/toolbox'
 alias be='bundle exec'
+alias ta='tmux a'
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
