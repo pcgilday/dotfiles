@@ -18,6 +18,12 @@ export PATH="$PATH:$GOPATH/bin"
 # ---- Kubernetes ----------------------------------------------------------
 export KUBECONFIG="${HOME}/.kube/config"
 
+# ---- Editor --------------------------------------------------------------
+# Default editor for git, `hermes config edit`, and the Hermes /prompt
+# compose command (which opens $VISUAL, falling back to $EDITOR).
+export EDITOR="vim"
+export VISUAL="vim"
+
 # ---- nvm (generic; brew-installed nvm is wired up in shell/darwin.sh) -----
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
