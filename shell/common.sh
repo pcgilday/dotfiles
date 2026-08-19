@@ -36,6 +36,8 @@ export NVM_DIR="$HOME/.nvm"
 alias v='vim'
 alias vimrc='vim ~/.vimrc'
 alias cs='claude-swarm'
+# start patrick-bot
+alias pb='hermes'
 alias cl='clear'
 alias toolbox='cd ~/repos/toolbox'
 alias be='bundle exec'
